@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_btn"
+        android:title="Главная"
+        android:icon="@drawable/home"
+        />
+
+    <item
+        android:id="@+id/current_course_btn"
+        android:title="Текущий курс"
+        android:icon="@drawable/course"
+        />
+    <item
+        android:id="@+id/about_btn"
+        android:title="О приложении"
+        android:icon="@drawable/about"
+        />
+</menu>
