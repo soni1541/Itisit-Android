@@ -56,6 +56,7 @@
                 android:backgroundTint="#000000"
                 android:fontFamily="@font/source_code_pro_bold"
                 android:minHeight="55dp"
+                android:onClick="click_start_content_course"
                 android:text="ИЗУЧИТЬ"
                 android:textSize="20sp" />
         </LinearLayout>
