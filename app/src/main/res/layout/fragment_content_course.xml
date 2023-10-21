@@ -5,40 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#5B9C34"
-    tools:context=".ContentCourseFragment" >
+    tools:context=".ContentCourseFragment">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
+        android:id="@+id/cardView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="55dp"
         android:background="#FFFFFF"
         app:cardCornerRadius="10dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="96dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:isScrollContainer="false"
+                android:keepScreenOn="false"
                 android:minHeight="40dp"
                 android:orientation="horizontal"
-                android:textAlignment="textStart">
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="237dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/source_code_pro_bold"
                     android:text="ВВЕДЕНИЕ В С++"
                     android:textAlignment="textStart"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/imageButton_hide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -50,8 +60,10 @@
 
             <LinearLayout
                 android:id="@+id/linear_layout_content_course1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="start"
                 android:orientation="vertical">
 
 
@@ -59,18 +71,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
+                    android:padding="5dp"
                     android:textAlignment="viewStart">
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="91dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/line_circle" />
 
                     <TextView
                         android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Почему С++? История языка"
@@ -81,11 +94,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
+                    android:padding="5dp"
                     android:textAlignment="textStart">
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/line_circle" />
@@ -102,18 +116,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="47dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/line_circle" />
 
                     <TextView
                         android:id="@+id/textView11"
-                        android:layout_width="wrap_content"
+                        android:layout_width="240dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Среды разработки"
@@ -123,19 +138,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
+                        android:layout_width="1dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/line_circle" />
 
                     <TextView
                         android:id="@+id/textView12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="198dp"
+                        android:layout_height="31dp"
                         android:layout_weight="1"
                         android:text="Синтаксис языка С++"
                         android:textColor="#000000" />
@@ -146,7 +162,11 @@
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:backgroundTint="#000000"
+                    android:fontFamily="@font/source_code_pro_bold"
+                    android:padding="5dp"
                     android:text="Начать" />
 
             </LinearLayout>

@@ -2,10 +2,12 @@ package com.example.itisit;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        setTitle("ITISIT");
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -73,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout content_course = findViewById(R.id.linear_layout_content_course1);
         if(content_course.getVisibility() == View.VISIBLE) {
             content_course.setVisibility(View.GONE);
+            ImageButton btn_hide = findViewById(R.id.imageButton_hide);
+            btn_hide.setImageResource(R.drawable.circle_down);
         }
         else {
             content_course.setVisibility(View.VISIBLE);
