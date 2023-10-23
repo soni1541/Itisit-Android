@@ -76,13 +76,42 @@ public class MainActivity extends AppCompatActivity {
 
     public void click_hide_content(View view) {
         LinearLayout content_course = findViewById(R.id.linear_layout_content_course1);
+        ImageButton btn_hide = findViewById(R.id.imageButton_hide);
+
         if(content_course.getVisibility() == View.VISIBLE) {
             content_course.setVisibility(View.GONE);
-            ImageButton btn_hide = findViewById(R.id.imageButton_hide);
             btn_hide.setImageResource(R.drawable.circle_down);
         }
         else {
             content_course.setVisibility(View.VISIBLE);
+            btn_hide.setImageResource(R.drawable.circle_up);
+        }
+    }
+    public void click_hide_content2(View view) {
+        LinearLayout content_course = findViewById(R.id.linear_layout_content_course2);
+        ImageButton btn_hide = findViewById(R.id.imageButton_hide2);
+
+        if(content_course.getVisibility() == View.VISIBLE) {
+            content_course.setVisibility(View.GONE);
+
+            btn_hide.setImageResource(R.drawable.circle_down);
+        }
+        else {
+            content_course.setVisibility(View.VISIBLE);
+            btn_hide.setImageResource(R.drawable.circle_up);
+        }
+    }
+    public void click_hide_content3(View view) {
+        LinearLayout content_course = findViewById(R.id.linear_layout_content_course3);
+        ImageButton btn_hide = findViewById(R.id.imageButton_hide3);
+
+        if(content_course.getVisibility() == View.VISIBLE) {
+            content_course.setVisibility(View.GONE);
+            btn_hide.setImageResource(R.drawable.circle_down);
+        }
+        else {
+            content_course.setVisibility(View.VISIBLE);
+            btn_hide.setImageResource(R.drawable.circle_up);
         }
     }
 }
