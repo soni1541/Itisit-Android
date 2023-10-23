@@ -9,7 +9,7 @@
     <item
         android:id="@+id/current_course_btn"
         android:title="История"
-        android:icon="@drawable/course"
+        android:icon="@drawable/history"
         />
     <item
         android:id="@+id/about_btn"
