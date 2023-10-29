@@ -5,15 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#5B9C34"
-    tools:context=".Course1_Theory_Fragment" >
+    tools:context=".Course1_Theory_Fragment">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
+        android:id="@+id/cardView4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:background="#FFFFFF"
         app:cardCornerRadius="10dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="164dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,9 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="60dp"
                 android:fontFamily="@font/source_code_pro"
-                android:text="Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.
-
-                На сегодняшний день С++ является одним из самых популярных и распространенных языков." />
+                android:text="Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.\n\nНа сегодняшний день С++ является одним из самых популярных и распространенных языков." />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +63,16 @@
                     android:layout_gravity="left"
                     android:background="#FFFFFF"
                     android:foregroundGravity="left"
-                    android:src="@drawable/circle_left" />
+                    android:src="@drawable/circle_left"
+                    android:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/about"
+                    android:visibility="invisible" />
 
                 <ImageButton
                     android:id="@+id/imageButton_forward"
@@ -71,6 +83,15 @@
                     android:foregroundGravity="right"
                     android:src="@drawable/circle_right" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView_text_start_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/source_code_pro"
+                android:gravity="right"
+                android:text="Проверить\nзнания"
+                android:visibility="invisible" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

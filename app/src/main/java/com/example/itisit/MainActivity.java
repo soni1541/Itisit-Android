@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ContentCourseFragment contentCourseFragment = new ContentCourseFragment();
 
-    private Course1_Theory_Fragment course1_theory_fragment = new Course1_Theory_Fragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +71,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment1, contentCourseFragment)
+                .addToBackStack(null)
                 .commit();
     }
 
-    public void click_start_course1(View view) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment1, course1_theory_fragment)
-                .commit();
-    }
 
 }

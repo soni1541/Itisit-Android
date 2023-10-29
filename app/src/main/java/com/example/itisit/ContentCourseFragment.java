@@ -4,8 +4,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,9 +31,6 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
     private LinearLayout content_course1;
     private LinearLayout content_course2;
     private LinearLayout content_course3;
-
-
-    private ContentCourseFragment contentCourseFragment = new ContentCourseFragment();
 
     private Course1_Theory_Fragment course1_theory_fragment = new Course1_Theory_Fragment();
 
@@ -110,7 +105,6 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        Log.d("VIEW", view.toString());
         switch (view.getId()) {
 
             case R.id.imageButton_hide1:
@@ -155,17 +149,13 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
             case R.id.button_start_course1:
             {
-//                AppCompatActivity a = new AppCompatActivity();
-//                a.getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(this.contentCourseFragment, course1_theory_fragment)
-//                        .commit();
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.fragment1, course1_theory_fragment)
+                        .addToBackStack(null)
+                        .commit();
 
-//                FragmentManager childFragmentManager = getChildFragmentManager();
-//                FragmentTransaction fragmentTransaction = childFragmentManager.beginTransaction();
-//                fragmentTransaction.replace(androidx.core.R.id.action_container, course1_theory_fragment);
-//                fragmentTransaction.commit();
-                break;
+               break;
             }
 
         }
