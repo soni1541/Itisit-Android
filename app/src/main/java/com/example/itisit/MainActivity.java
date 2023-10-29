@@ -2,13 +2,11 @@ package com.example.itisit;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -18,17 +16,20 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
     private HomeFragment homeFragment = new HomeFragment();
-    private CourseFragment courseFragment = new CourseFragment();
+    private HistoryFragment historyFragment = new HistoryFragment();
     private AboutFragment aboutFragment = new AboutFragment();
 
 
     private ContentCourseFragment contentCourseFragment = new ContentCourseFragment();
+
+    private Course1_Theory_Fragment course1_theory_fragment = new Course1_Theory_Fragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         setTitle("ITISIT");
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.fragment1, courseFragment)
+                                .replace(R.id.fragment1, historyFragment)
                                 .commit();
                         return true;
                     case R.id.about_btn:
@@ -74,44 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    public void click_hide_content(View view) {
-        LinearLayout content_course = findViewById(R.id.linear_layout_content_course1);
-        ImageButton btn_hide = findViewById(R.id.imageButton_hide);
-
-        if(content_course.getVisibility() == View.VISIBLE) {
-            content_course.setVisibility(View.GONE);
-            btn_hide.setImageResource(R.drawable.circle_down);
-        }
-        else {
-            content_course.setVisibility(View.VISIBLE);
-            btn_hide.setImageResource(R.drawable.circle_up);
-        }
+    public void click_start_course1(View view) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment1, course1_theory_fragment)
+                .commit();
     }
-    public void click_hide_content2(View view) {
-        LinearLayout content_course = findViewById(R.id.linear_layout_content_course2);
-        ImageButton btn_hide = findViewById(R.id.imageButton_hide2);
 
-        if(content_course.getVisibility() == View.VISIBLE) {
-            content_course.setVisibility(View.GONE);
-
-            btn_hide.setImageResource(R.drawable.circle_down);
-        }
-        else {
-            content_course.setVisibility(View.VISIBLE);
-            btn_hide.setImageResource(R.drawable.circle_up);
-        }
-    }
-    public void click_hide_content3(View view) {
-        LinearLayout content_course = findViewById(R.id.linear_layout_content_course3);
-        ImageButton btn_hide = findViewById(R.id.imageButton_hide3);
-
-        if(content_course.getVisibility() == View.VISIBLE) {
-            content_course.setVisibility(View.GONE);
-            btn_hide.setImageResource(R.drawable.circle_down);
-        }
-        else {
-            content_course.setVisibility(View.VISIBLE);
-            btn_hide.setImageResource(R.drawable.circle_up);
-        }
-    }
 }
