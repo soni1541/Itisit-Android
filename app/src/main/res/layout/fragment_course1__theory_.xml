@@ -11,9 +11,9 @@
         android:id="@+id/cardView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginRight="15dp"
         android:background="#FFFFFF"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +47,8 @@
                 android:id="@+id/textView_theory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:fontFamily="@font/source_code_pro"
-                android:text="Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.\n\nНа сегодняшний день С++ является одним из самых популярных и распространенных языков." />
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/source_code_pro" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,7 +90,7 @@
                 android:fontFamily="@font/source_code_pro"
                 android:gravity="right"
                 android:text="Проверить\nзнания"
-                android:visibility="invisible" />
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

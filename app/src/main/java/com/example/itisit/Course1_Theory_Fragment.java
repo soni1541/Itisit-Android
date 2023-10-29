@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,16 +49,67 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         // Required empty public constructor
 
         texts_headers = new String[]{
+                //0
                 "Кто такой С++?",
-                "Почему С++?"
+                //1
+                "Почему С++?",
+                //2
+                "Среды разработки",
+                //3
+                "Структура проекта",
+                //4
+                "Структура программы",
+                //5
+                "Структура программы",
+                //6
+                "Синтаксис С++"
         };
 
         texts_theories = new String[]{
-                "Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.\n\nНа сегодняшний день С++ является одним из самых популярных и распространенных языков.",
+                //0
+                "Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.\n\nЯзык возник в начале 1980-х годов, когда сотрудник фирмы Bell Labs Бьёрн Страуструп придумал ряд усовершенствований к языку C.",
+                //1
                 "На C++ можно писать НИЗКОУРОВНЕВЫЙ код, обращаясь к памяти напрямую. Или можно использовать ВЫСОКОУРОВНЕВЫЕ концепции вроде ООП и ФУНКЦИОНАЛЬНОЕ ПРОГРАММИРОВАНИЕ.\n\nВ C++ есть много высокоуровневых ИНСТРУМЕНТОВ, КОНСТРУКЦИЙ и БИБЛИОТЕК, что позволяет значительно ускорить разработку\n\nC++ даёт разработчикам столько возможностей, что на нём можно писать что угодно: от драйверов до сайтов.\n" +
-                        "Также он не только УНИВЕРСАЛЬНЫЙ, но и очень ПРОИЗВОДИТЕЛЬНЫЙ."
+                        "Также он не только УНИВЕРСАЛЬНЫЙ, но и очень ПРОИЗВОДИТЕЛЬНЫЙ.",
+                //2
+                "Среда разработки (IDE) — это программа или несколько программ, которые вы используете для создания программ.\n\nТоп 7 популярных IDE для программирования на С++:\n\n1. Microsoft Visual Studio.\n2. Xcode.\n3. NetBeans.\n4. Eclipse.\n5. CodeLite.\n6. Qt Creator.\n7. Code::Blocks.",
+                //3
+                "1. Header Files - предназначена для хранения заголовочных файлов с расширением .h\n" +
+                "\n" +
+                "2. Resource Files - предназначена для хранения файлов ресурсов, например, изображений\n" +
+                "\n" +
+                "3. Source Files - хранит файлы с исходным кодом\n\n\n" +
+                "По умолчанию каталог Source Files содержит один файл с исходным кодом - MyApp.cpp\n(название проекта + расширение файла .cpp).",
+                //4
+                "Исходный код первой программы:\n\n\n" +
+                "#include <iostream>\n\n" +
+                        "using namespace std;\n\n" +
+                        "int main()\n" +
+                        "{\n" +
+                        "   cout << \"Hello World\";\n\n" +
+                        "   return 0;" +
+                        "\n}",
+                //5
+                "Разберём код по строкам:\n\n\n" +
+                "#include <iostream>\n\n" +
+                        "// раскрытие пространства имен\n" +
+                        "using namespace std;\n\n" +
+                        "// основная функция, в которой начинается выполнение программы\n" +
+                        "int main()\n" +
+                        "{\n" +
+                        "// вызов на экране сообщения «Hello World».\n" +
+                        "cout << \"Hello World\";\n\n" +
+                        "// завершение функции main() и возвращение значения 0 в вызывающий процесс.\n" +
+                        "return 0;" +
+                        "\n}",
+                //6
+                "Программа на C++ — это последовательность команд. Большинство команд должны заканчиваться ТОЧКОЙ С ЗАПЯТОЙ.\n\n" +
+                "Структура программы формируется ФИГУРНЫМИ СКОБКАМИ, т.е. блоки функций, блоки if, циклов и т.п. указываются с помощью фигурных скобок.\n\n" +
+                "ОТСТУПЫ в программе на C++ не имеют никакого значения для компилятора\n\n" +
+                "Язык C++ чувствителен к РЕГИСТРУ: заглавные и маленькие буквы различаются."
         };
 
+        current_index_text = 0;
     }
 
     /**
@@ -99,14 +151,57 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         header_theory = (TextView) view.findViewById(R.id.textView_header);
         text_theory = (TextView) view.findViewById(R.id.textView_theory);
 
+        current_index_text = 0;
 
         text_start_test = (TextView) view.findViewById(R.id.textView_text_start_test);
+
+        show_action(view);
 
 
         b_forward.setOnClickListener(this);
         b_back.setOnClickListener(this);
 
         return view;
+    }
+
+    public void show_action(View view){
+        if(current_index_text == 0)
+        {
+            b_back.setVisibility(View.INVISIBLE);
+            b_forward.setVisibility(View.VISIBLE);
+
+            text_start_test.setVisibility(View.GONE);
+        }
+        else if (current_index_text + 1 == texts_theories.length)
+        {
+            b_back.setVisibility(View.VISIBLE);
+            b_forward.setVisibility(View.VISIBLE);
+
+            text_start_test.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            b_back.setVisibility(View.VISIBLE);
+            b_forward.setVisibility(View.VISIBLE);
+
+            text_start_test.setVisibility(View.GONE);
+        }
+
+        // Отображение текстов теории (заголовка и текста)
+        if(current_index_text >= 0 &&
+                current_index_text < texts_theories.length)
+        {
+            header_theory.setText(texts_headers[current_index_text]);
+            text_theory.setText(texts_theories[current_index_text]);
+        }
+        else if (current_index_text == texts_theories.length)
+        {
+            // направить на тест
+        }
+        else
+        {
+            Log.d("Ошибка", "Выход за массив");
+        }
     }
 
     @Override
@@ -118,37 +213,18 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 ++current_index_text;
 
                 //Отображение положений кнопок
-                if(current_index_text == 0)
-                {
-                    b_back.setVisibility(View.INVISIBLE);
-                    b_forward.setVisibility(View.VISIBLE);
+                show_action(view);
 
-                    text_start_test.setVisibility(View.INVISIBLE);
-                }
-                else if (current_index_text + 1 == texts_theories.length)
-                {
-                    b_back.setVisibility(View.VISIBLE);
-                    b_forward.setVisibility(View.VISIBLE);
+                break;
+            }
+            case R.id.imageButton_back: {
 
-                    text_start_test.setVisibility(View.VISIBLE);
-                }
-                else
-                {
-                    b_back.setVisibility(View.VISIBLE);
-                    b_forward.setVisibility(View.VISIBLE);
+                --current_index_text;
 
-                    text_start_test.setVisibility(View.INVISIBLE);
-                }
+                //Отображение положений кнопок
+                show_action(view);
 
-
-
-
-                if(current_index_text < texts_theories.length)
-                    {
-                        header_theory.setText(texts_headers[current_index_text]);
-                    }
-
-                    //else if () направить в тест
+                break;
             }
         }
     }
