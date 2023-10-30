@@ -34,6 +34,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
     private Course1_Theory_Fragment course1_theory_fragment = new Course1_Theory_Fragment();
 
+    private Course2_Theory_Fragment course2_theory_fragment = new Course2_Theory_Fragment();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -88,7 +89,9 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
         ImageButton b2 = (ImageButton) view.findViewById(R.id.imageButton_hide2);
         ImageButton b3 = (ImageButton) view.findViewById(R.id.imageButton_hide3);
 
-        Button btn_start_course = (Button) view.findViewById(R.id.button_start_course1);
+        Button btn_start_course1 = (Button) view.findViewById(R.id.button_start_course1);
+        Button btn_start_course2 = (Button) view.findViewById(R.id.button_start_course2);
+        Button btn_start_course3 = (Button) view.findViewById(R.id.button_start_course3);
 
         content_course1 = (LinearLayout) view.findViewById(R.id.linear_layout_content_course1);
         content_course2 = (LinearLayout) view.findViewById(R.id.linear_layout_content_course2);
@@ -97,7 +100,8 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
-        btn_start_course.setOnClickListener(this);
+        btn_start_course1.setOnClickListener(this);
+        btn_start_course2.setOnClickListener(this);
 
         return view;
     }
@@ -156,6 +160,16 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
                         .commit();
 
                break;
+            }
+            case R.id.button_start_course2:
+            {
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.fragment1, course2_theory_fragment)
+                        .addToBackStack(null)
+                        .commit();
+
+                break;
             }
 
         }

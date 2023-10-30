@@ -383,7 +383,7 @@
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/button2"
+                            android:id="@+id/button_start_course2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
@@ -568,7 +568,7 @@
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/button2"
+                            android:id="@+id/button_start_course3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
