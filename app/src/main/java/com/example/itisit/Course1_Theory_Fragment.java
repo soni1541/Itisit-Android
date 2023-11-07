@@ -44,6 +44,8 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
 
     private int current_index_text;
 
+    private Course1_Test_Fragment course1_test_fragment = new Course1_Test_Fragment();
+
 
     public Course1_Theory_Fragment() {
         // Required empty public constructor
@@ -196,7 +198,11 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         }
         else if (current_index_text == texts_theories.length)
         {
-            // направить на тест
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment1, course1_test_fragment)
+                    .addToBackStack(null)
+                    .commit();
         }
         else
         {

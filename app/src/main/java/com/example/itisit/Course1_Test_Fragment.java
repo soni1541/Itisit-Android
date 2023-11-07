@@ -8,10 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 /**
@@ -30,15 +32,22 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
     private String mParam1;
     private String mParam2;
 
+    //private Course1_Theory_Fragment course1_theory_fragment;
+
     private TextView header_test;
 
-    private LinearLayout question_test;
+    private LinearLayout content_question_test;
 
     private ImageButton b_forward;
     private ImageButton b_back;
+    private Button b_check;
+
+    private ImageButton b_theory;
 
     private String[] test_headers;
     private String[][] test_questions;
+
+    private int[][] test_answers;
 
     private int current_index_question;
 
@@ -82,35 +91,55 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                     "Среды разработки (IDE)",
                     "Утилиты"
                 },
+                //2
                 {
                     "source.cpp",
                     "windows.h",
                     "source.h"
                 },
-                //2
+                //3
                 {
                     "include<iostream>\nusing namespace;\n int main()\n{\n}",
                     "int main()\n{\n}",
                     "#include<iostream>\nusing namespace std;\n int main()\n{\n}"
                 },
-                //3
+                //4
                 {
                         ";",
                         ":",
                         "."
                 },
-                //4
+                //5
                 {
                     "int a;\ncin a;",
                     "int a;\ncin >> a;",
                     "int a;\ncin << a;"
                 },
-                //5
+                //6
                 {
                         "## я комментарий",
                         "** я комментарий",
                         "// я комментарий"
                 }
+        };
+
+        test_answers = new int[][]
+        {
+                //0
+                {0, 1, 2, 3},
+                //1
+                {1},
+                //2
+                {0},
+                //3
+                {2},
+                //4
+                {0},
+                //5
+                {1},
+                //6
+                {2}
+
         };
 
     }
@@ -151,9 +180,11 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
 
         b_forward = (ImageButton) view.findViewById(R.id.imageButton_forward);
         b_back = (ImageButton) view.findViewById(R.id.imageButton_back);
+        b_theory = (ImageButton) view.findViewById(R.id.imageButton_theory);
+        b_check = (Button) view.findViewById(R.id.button_check);
 
         header_test = (TextView) view.findViewById(R.id.textView__header_question);
-        question_test = (LinearLayout) view.findViewById(R.id.linear_layout_content_test);
+        content_question_test = (LinearLayout) view.findViewById(R.id.linear_layout_content_test);
 
         current_index_question = 0;
 
@@ -165,6 +196,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
 
         b_forward.setOnClickListener(this);
         b_back.setOnClickListener(this);
+        b_theory.setOnClickListener(this);
 
         return view;
     }
@@ -172,10 +204,11 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
     public void show_action(View view){
         if(current_index_question == 0)
         {
-            b_back.setVisibility(View.INVISIBLE);
-            b_forward.setVisibility(View.INVISIBLE);
+            //b_back.setVisibility(View.INVISIBLE);
+            //b_forward.setVisibility(View.INVISIBLE);
 
             text_check_answer.setVisibility(View.INVISIBLE);
+
 
             image_result.setVisibility(View.GONE);
         }
@@ -189,14 +222,22 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
             for(int answer = 0; answer < test_questions[current_index_question].length; answer ++)
             {
                 String text_question = test_questions[current_index_question][answer];
-                CheckBox checkBox_question = null;
-                checkBox_question.setText(text_question);
+                if(test_answers[current_index_question].length > 1) {
+                    CheckBox checkBox_question = new CheckBox(getContext());
+                    checkBox_question.setText(text_question);
+                    content_question_test.addView(checkBox_question);
+                }
+                else if (test_answers[current_index_question].length == 1) {
+                    RadioButton radioButton_question = new RadioButton(getContext());
+                    radioButton_question.setText(text_question);
+                    content_question_test.addView(radioButton_question);
+                }
             }
 
         }
         else if (current_index_question == test_headers.length)
         {
-            // направить на тест
+            // завершить тест
         }
         else
         {
@@ -210,6 +251,8 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
 
             case R.id.imageButton_forward: {
 
+
+                content_question_test.removeAllViews();
                 ++current_index_question;
 
                 //Отображение положений кнопок
@@ -219,12 +262,29 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
             }
             case R.id.imageButton_back: {
 
+
+                content_question_test.removeAllViews();
                 --current_index_question;
 
                 //Отображение положений кнопок
                 show_action(view);
 
                 break;
+            }
+            case R.id.button_check: {
+
+
+//
+            }
+            case R.id.imageButton_theory: {
+
+//                getParentFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment1, course1_theory_fragment)
+//                        .addToBackStack(null)
+//                        .commit();
+//
+//                break;
             }
         }
     }
