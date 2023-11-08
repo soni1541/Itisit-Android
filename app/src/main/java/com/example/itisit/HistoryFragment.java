@@ -1,5 +1,6 @@
 package com.example.itisit;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,8 +27,11 @@ public class HistoryFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private ListView listView_history;
+
     public HistoryFragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -56,10 +62,31 @@ public class HistoryFragment extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
+
+        Bundle arguments = this.getArguments();
+        String name_course_now = arguments.getString("name_course_now");
+        String name_content_course_now = arguments.getString("name_content_course_now");
+
+        TextView name_course_now_text = new TextView(this.getContext());
+        name_course_now_text.setText(name_course_now);
+
+        TextView name_content_course_now_text = new TextView(this.getContext());
+        name_course_now_text.setText(name_content_course_now);
+
+        listView_history = (ListView) view.findViewById(R.id.list_view_history);
+
+        listView_history.addHeaderView(name_course_now_text);
+        listView_history.addFooterView(name_content_course_now_text);
+
+
+
+        return view;
     }
 }

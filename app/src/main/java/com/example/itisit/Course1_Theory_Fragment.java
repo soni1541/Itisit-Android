@@ -202,7 +202,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
             Current_Fragment.now_fragment = 3;
             getParentFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragment1, course1_test_fragment)
+                    .replace(R.id.fragment1, course1_test_fragment)
                     .addToBackStack(null)
                     .commit();
         }

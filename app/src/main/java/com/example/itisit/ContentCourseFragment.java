@@ -36,6 +36,10 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
     private Course2_Theory_Fragment course2_theory_fragment = new Course2_Theory_Fragment();
 
+
+    private String name_course_now;
+    private String name_content_course_now;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -154,10 +158,21 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
             case R.id.button_start_course1:
             {
+                name_course_now = "ОСНОВЫ С++";
+                name_content_course_now = "ВВЕДЕНИЕ В С++";
+                Bundle arguments = new Bundle();
+                arguments.putString("name_course_now", name_course_now);
+                arguments.putString("name_content_course_now", name_content_course_now);
+
                 Current_Fragment.now_fragment = 2;
+
+                HistoryFragment historyFragment = new HistoryFragment();
+
+                historyFragment.setArguments(arguments);
+
                 getParentFragmentManager()
                         .beginTransaction()
-                        .add(R.id.fragment1, course1_theory_fragment)
+                        .replace(R.id.fragment1, course1_theory_fragment)
                         .addToBackStack(null)
                         .commit();
 
@@ -167,7 +182,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
             {
                 getParentFragmentManager()
                         .beginTransaction()
-                        .add(R.id.fragment1, course2_theory_fragment)
+                        .replace(R.id.fragment1, course2_theory_fragment)
                         .addToBackStack(null)
                         .commit();
 

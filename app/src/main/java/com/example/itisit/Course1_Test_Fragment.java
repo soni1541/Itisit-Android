@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.text.style.QuoteSpan;
 import android.util.Log;
@@ -59,7 +60,6 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
 
     private ImageView image_result;
     private TextView text_check_answer;
-
 
     private ConstraintLayout constraintLayout;
 
@@ -361,8 +361,8 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                         if (radioButton_question.isChecked()) {
                             Log.d("ID_RADIO", String.valueOf(id_check_now));
                             if (questions.get(current_index_question).id_answers.contains(id_check_now)) {
+                                // id_кнопки  == правильный ответ
                                 //Правильно
-                                //b_check.setVisibility(View.INVISIBLE);
                             } else {
                                 //Неправильно
                                 result = false;
@@ -406,16 +406,17 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                     constraintLayout.setBackgroundColor(Color.parseColor("#F35D78"));
                 }
 //
+                break;
             }
             case R.id.imageButton_theory: {
 
-//                getParentFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.fragment1, course1_theory_fragment)
-//                        .addToBackStack(null)
-//                        .commit();
-//
-//                break;
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment1, new Course1_Theory_Fragment())
+                        .addToBackStack(null)
+                        .commit();
+
+                break;
             }
         }
     }
