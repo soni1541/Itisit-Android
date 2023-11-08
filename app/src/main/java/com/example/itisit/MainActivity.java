@@ -22,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ContentCourseFragment contentCourseFragment = new ContentCourseFragment();
 
+    private Course1_Theory_Fragment course1_theory_fragment = new Course1_Theory_Fragment();
+
+    private Course1_Test_Fragment course1_test_fragment = new Course1_Test_Fragment();
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +46,39 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home_btn:
 
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragment1, homeFragment)
-                                .commit();
-                        return true;
+                        if(Current_Fragment.now_fragment == 0)
+                        {
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment1, homeFragment)
+                                    .commit();
+                            return true;
+                        }
+                        else if(Current_Fragment.now_fragment == 1)
+                        {
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment1, contentCourseFragment)
+                                    .commit();
+                            return true;
+                        }
+                        else if(Current_Fragment.now_fragment == 2)
+                        {
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment1, course1_theory_fragment)
+                                    .commit();
+                            return true;
+                        }
+                        else if(Current_Fragment.now_fragment == 3)
+                        {
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment1, course1_test_fragment)
+                                    .commit();
+                            return true;
+                        }
+
 
                     case R.id.current_course_btn:
 
@@ -68,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click_start_content_course(View view) {
+        Current_Fragment.now_fragment = 1;
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment1, contentCourseFragment)

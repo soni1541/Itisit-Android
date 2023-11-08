@@ -135,6 +135,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -198,6 +199,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         }
         else if (current_index_text == texts_theories.length)
         {
+            Current_Fragment.now_fragment = 3;
             getParentFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment1, course1_test_fragment)

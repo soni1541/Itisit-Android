@@ -65,6 +65,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -153,6 +154,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
             case R.id.button_start_course1:
             {
+                Current_Fragment.now_fragment = 2;
                 getParentFragmentManager()
                         .beginTransaction()
                         .add(R.id.fragment1, course1_theory_fragment)
