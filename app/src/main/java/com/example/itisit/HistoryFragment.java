@@ -84,6 +84,11 @@ public class HistoryFragment extends Fragment {
 
         List<Current_Course> courses_history = History_Courses.currentCourses;
 
+        if(courses_history.size() > 0)
+        {
+            linearLayout_history.setVisibility(View.VISIBLE);
+        }
+
         for(Current_Course course_now : courses_history)
         {
             TextView name_course_now_text = new TextView(this.getContext());
