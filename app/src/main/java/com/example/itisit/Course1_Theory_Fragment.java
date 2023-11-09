@@ -2,6 +2,7 @@ package com.example.itisit;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -135,6 +136,12 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setTitle("ВВЕДЕНИЕ В С++");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(true);
         setRetainInstance(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);

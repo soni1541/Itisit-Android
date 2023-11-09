@@ -1,7 +1,9 @@
 package com.example.itisit;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Course2_Test_Fragment course2_test_fragment = new Course2_Test_Fragment();
 
-
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        setTitle("ITISIT");
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextAppearance(this, R.style.SourseCodeProBoldTextAppearance);
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

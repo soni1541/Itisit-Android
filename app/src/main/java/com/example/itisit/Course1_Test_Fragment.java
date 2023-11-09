@@ -273,6 +273,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
         }
         else if (current_index_question == questions.size())
         {
+            Current_Fragment.now_fragment = 1;
             getParentFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment1, result_test_fragment)

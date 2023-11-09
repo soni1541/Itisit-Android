@@ -2,6 +2,7 @@ package com.example.itisit;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -147,6 +148,12 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setTitle("ПЕРЕМЕННЫЕ");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

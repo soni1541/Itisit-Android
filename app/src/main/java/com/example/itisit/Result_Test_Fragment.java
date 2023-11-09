@@ -67,7 +67,7 @@ public class Result_Test_Fragment extends Fragment implements View.OnClickListen
         Button exit_course = (Button) view.findViewById(R.id.button_exit_course);
 
         TextView textView_content_course_now = (TextView) view.findViewById(R.id.textView_content_course);
-        textView_content_course_now.setText("Вы прошли тему \"" + History_Courses.currentCourses.get(History_Courses.currentCourses.size() - 1).name_content_course_now + "\"");
+        textView_content_course_now.setText("Вы прошли тему\n\"" + History_Courses.currentCourses.get(History_Courses.currentCourses.size() - 1).name_content_course_now + "\"");
 
         exit_course.setOnClickListener(this);
 
