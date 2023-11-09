@@ -37,8 +37,6 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
     private Course2_Theory_Fragment course2_theory_fragment = new Course2_Theory_Fragment();
 
 
-    private String name_course_now;
-    private String name_content_course_now;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -158,17 +156,15 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
             case R.id.button_start_course1:
             {
-                name_course_now = "ОСНОВЫ С++";
-                name_content_course_now = "ВВЕДЕНИЕ В С++";
-                Bundle arguments = new Bundle();
-                arguments.putString("name_course_now", name_course_now);
-                arguments.putString("name_content_course_now", name_content_course_now);
+                Current_Course course_now = new Current_Course();
+                course_now.name_course_now = "ОСНОВЫ С++";
+                course_now.name_content_course_now = "Введение в С++";
+
+                if(!History_Courses.currentCourses.contains(course_now))
+                    History_Courses.currentCourses.add(course_now);
 
                 Current_Fragment.now_fragment = 2;
 
-                HistoryFragment historyFragment = new HistoryFragment();
-
-                historyFragment.setArguments(arguments);
 
                 getParentFragmentManager()
                         .beginTransaction()
@@ -180,6 +176,13 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
             }
             case R.id.button_start_course2:
             {
+                Current_Course course_now = new Current_Course();
+                course_now.name_course_now = "ОСНОВЫ С++";
+                course_now.name_content_course_now = "Переменные";
+
+                if(!History_Courses.currentCourses.contains(course_now))
+                    History_Courses.currentCourses.add(course_now);
+
                 getParentFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment1, course2_theory_fragment)

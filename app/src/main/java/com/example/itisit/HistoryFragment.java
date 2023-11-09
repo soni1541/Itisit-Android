@@ -1,15 +1,24 @@
 package com.example.itisit;
 
 import android.annotation.SuppressLint;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +36,7 @@ public class HistoryFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ListView listView_history;
+    private LinearLayout linearLayout_history;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -62,6 +71,7 @@ public class HistoryFragment extends Fragment {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,20 +80,33 @@ public class HistoryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
-        Bundle arguments = this.getArguments();
-        String name_course_now = arguments.getString("name_course_now");
-        String name_content_course_now = arguments.getString("name_content_course_now");
+        linearLayout_history = (LinearLayout) view.findViewById(R.id.linear_layout_history);
 
-        TextView name_course_now_text = new TextView(this.getContext());
-        name_course_now_text.setText(name_course_now);
+        List<Current_Course> courses_history = History_Courses.currentCourses;
 
-        TextView name_content_course_now_text = new TextView(this.getContext());
-        name_course_now_text.setText(name_content_course_now);
+        for(Current_Course course_now : courses_history)
+        {
+            TextView name_course_now_text = new TextView(this.getContext());
+            name_course_now_text.setText(course_now.name_course_now);
 
-        listView_history = (ListView) view.findViewById(R.id.list_view_history);
+            //name_course_now_text.setTypeface(getResources().getFont(R.font.source_code_pro_bold));
 
-        listView_history.addHeaderView(name_course_now_text);
-        listView_history.addFooterView(name_content_course_now_text);
+
+            TextView name_content_course_now_text = new TextView(this.getContext());
+            name_content_course_now_text.setText(course_now.name_content_course_now);
+
+            LinearLayout linearLayout_course = new LinearLayout(this.getContext());
+
+            linearLayout_course.addView(name_course_now_text);
+            linearLayout_course.addView(name_content_course_now_text);
+            linearLayout_course.setOrientation(LinearLayout.VERTICAL);
+
+            linearLayout_course.setPadding(0,0,0,60);
+
+            linearLayout_history.addView(linearLayout_course);
+        }
+
+
 
 
 
