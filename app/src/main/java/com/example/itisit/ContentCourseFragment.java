@@ -36,6 +36,8 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
     private Course2_Theory_Fragment course2_theory_fragment = new Course2_Theory_Fragment();
 
+    Current_Course course_now;
+
 
 
     // TODO: Rename and change types of parameters
@@ -44,6 +46,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
     public ContentCourseFragment() {
         // Required empty public constructor
+        course_now = new Current_Course();
     }
 
     /**
@@ -87,6 +90,8 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
                 .setDisplayShowHomeEnabled(true);
 
         View view = inflater.inflate(R.layout.fragment_content_course, container, false);
+
+
 
         ImageButton b1 = (ImageButton) view.findViewById(R.id.imageButton_hide1);
         ImageButton b2 = (ImageButton) view.findViewById(R.id.imageButton_hide2);
@@ -156,12 +161,16 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
             case R.id.button_start_course1:
             {
-                Current_Course course_now = new Current_Course();
-                course_now.name_course_now = "ОСНОВЫ С++";
-                course_now.name_content_course_now = "Введение в С++";
 
-                if(!History_Courses.currentCourses.contains(course_now))
-                    History_Courses.currentCourses.add(course_now);
+                if(course_now.name_content_course_now != "Введение в С++")
+                {
+                    course_now.name_course_now = "ОСНОВЫ С++";
+                    course_now.name_content_course_now = "Введение в С++";
+                    Current_Course course = new Current_Course();
+                    course.name_course_now = "ОСНОВЫ С++";
+                    course.name_content_course_now = "Введение в С++";
+                    History_Courses.currentCourses.add(course);
+                }
 
                 Current_Fragment.now_fragment = 2;
 
@@ -176,12 +185,16 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
             }
             case R.id.button_start_course2:
             {
-                Current_Course course_now = new Current_Course();
-                course_now.name_course_now = "ОСНОВЫ С++";
-                course_now.name_content_course_now = "Переменные";
+                if(course_now.name_content_course_now != "Переменные")
+                {
+                    course_now.name_course_now = "ОСНОВЫ С++";
+                    course_now.name_content_course_now = "Переменные";
+                    Current_Course course = new Current_Course();
+                    course.name_course_now = "ОСНОВЫ С++";
+                    course.name_content_course_now = "Переменные";
+                    History_Courses.currentCourses.add(course);
+                }
 
-                if(!History_Courses.currentCourses.contains(course_now))
-                    History_Courses.currentCourses.add(course_now);
 
                 getParentFragmentManager()
                         .beginTransaction()
