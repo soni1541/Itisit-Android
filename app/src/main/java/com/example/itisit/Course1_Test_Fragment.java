@@ -226,13 +226,12 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
             image_result.setVisibility(View.GONE);
         }
 
-        Question question_now = questions.get(current_index_question);
-
-
         // Отображение теста (заголовка и выбора ответов)
         if(current_index_question >= 0 &&
                 current_index_question < questions.size())
         {
+            Question question_now = questions.get(current_index_question);
+
             b_check.setVisibility(View.VISIBLE);
             b_check.setText("ПРОВЕРИТЬ");
             b_check.setBackgroundColor(Color.BLACK);
@@ -279,7 +278,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                     .replace(R.id.fragment1, result_test_fragment)
                     .addToBackStack(null)
                     .commit();
-
+            return;
         }
         else
         {

@@ -59,10 +59,14 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
     private ConstraintLayout constraintLayout;
 
+    private Result_Test_Fragment result_test_fragment = new Result_Test_Fragment();
+
 
     public Course2_Test_Fragment() {
         // Required empty public constructor
         questions = new ArrayList<Question>();
+
+        current_index_question = 0;
 
         Question q1 = new Question();
         q1.header = "Где правильно инициализирована переменная?";
@@ -228,13 +232,14 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
             image_result.setVisibility(View.GONE);
         }
 
-        Question question_now = questions.get(current_index_question);
-
 
         // Отображение теста (заголовка и выбора ответов)
         if(current_index_question >= 0 &&
                 current_index_question < questions.size())
         {
+            Question question_now = questions.get(current_index_question);
+
+
             b_check.setVisibility(View.VISIBLE);
             b_check.setText("ПРОВЕРИТЬ");
             b_check.setBackgroundColor(Color.BLACK);
@@ -276,7 +281,12 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         }
         else if (current_index_question == questions.size())
         {
-            // завершить тест
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment1, result_test_fragment)
+                    .addToBackStack(null)
+                    .commit();
+            return;
         }
         else
         {
@@ -294,7 +304,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 content_question_test.removeAllViews();
                 checkBoxes.clear();
                 radioButtons.clear();
-                current_index_question++;
+                ++current_index_question;
 
                 //Отображение положений кнопок
                 show_action(view);
@@ -307,7 +317,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 content_question_test.removeAllViews();
                 checkBoxes.clear();
                 radioButtons.clear();
-                current_index_question--;
+                --current_index_question;
 
                 //Отображение положений кнопок
                 show_action(view);
@@ -320,7 +330,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 boolean result = true;
 
                 Question question_now = questions.get(current_index_question);
-                Log.d("ANSWER size", String.valueOf(question_now.id_answers.size()));
+
 
                 if(question_now.id_answers.size() > 1)
                 {

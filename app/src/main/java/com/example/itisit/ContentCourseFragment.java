@@ -95,19 +95,15 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
         ImageButton b1 = (ImageButton) view.findViewById(R.id.imageButton_hide1);
         ImageButton b2 = (ImageButton) view.findViewById(R.id.imageButton_hide2);
-        ImageButton b3 = (ImageButton) view.findViewById(R.id.imageButton_hide3);
 
         Button btn_start_course1 = (Button) view.findViewById(R.id.button_start_course1);
         Button btn_start_course2 = (Button) view.findViewById(R.id.button_start_course2);
-        Button btn_start_course3 = (Button) view.findViewById(R.id.button_start_course3);
 
         content_course1 = (LinearLayout) view.findViewById(R.id.linear_layout_content_course1);
         content_course2 = (LinearLayout) view.findViewById(R.id.linear_layout_content_course2);
-        content_course3 = (LinearLayout) view.findViewById(R.id.linear_layout_content_course3);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
-        b3.setOnClickListener(this);
         btn_start_course1.setOnClickListener(this);
         btn_start_course2.setOnClickListener(this);
 
@@ -141,19 +137,6 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
                 }
                 else {
                     content_course2.setVisibility(View.VISIBLE);
-                    btn_hide.setImageResource(R.drawable.circle_up);
-                }
-                break;
-            }
-            case R.id.imageButton_hide3:
-            {
-                ImageButton btn_hide = (ImageButton) view.findViewById(R.id.imageButton_hide3);
-                if(content_course3.getVisibility() == View.VISIBLE) {
-                    content_course3.setVisibility(View.GONE);
-                    btn_hide.setImageResource(R.drawable.circle_down);
-                }
-                else {
-                    content_course3.setVisibility(View.VISIBLE);
                     btn_hide.setImageResource(R.drawable.circle_up);
                 }
                 break;
