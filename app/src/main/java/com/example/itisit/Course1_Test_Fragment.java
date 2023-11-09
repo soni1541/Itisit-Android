@@ -108,9 +108,9 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
         Question q4 = new Question();
         q4.header = "Как выглядит начало любой программы?";
         q4.text_answers = new ArrayList<String>();
-        q4.text_answers.add("include<iostream>\nusing namespace;\n int main()\n{\n}");
-        q4.text_answers.add("double main()\n{\n}");
-        q4.text_answers.add("#include<iostream>\nusing namespace std;\n int main()\n{\n}");
+        q4.text_answers.add("include<iostream>\nusing namespace;\n int main()\n{}");
+        q4.text_answers.add("double main()\n{}");
+        q4.text_answers.add("#include<iostream>\nusing namespace std;\n int main()\n{}");
         q4.id_answers = new ArrayList<Integer>();
         q4.id_answers.add(2);
         questions.add(q4);
