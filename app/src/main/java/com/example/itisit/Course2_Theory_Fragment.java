@@ -41,6 +41,7 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
     private String[] texts_headers;
     private String[] texts_theories;
 
+    private Course2_Test_Fragment course2_test_fragment = new Course2_Test_Fragment();
     private int current_index_text;
 
     public Course2_Theory_Fragment() {
@@ -214,7 +215,12 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
         }
         else if (current_index_text == texts_theories.length)
         {
-            // направить на тест
+            Current_Fragment.now_fragment = 4;
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment1, course2_test_fragment)
+                    .addToBackStack(null)
+                    .commit();
         }
         else
         {

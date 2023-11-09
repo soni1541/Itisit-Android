@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Course1_Test_Fragment course1_test_fragment = new Course1_Test_Fragment();
 
-
+    private Course2_Test_Fragment course2_test_fragment = new Course2_Test_Fragment();
 
 
 
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.fragment1, contentCourseFragment)
+                                    .addToBackStack(null)
                                     .commit();
                             return true;
                         }
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.fragment1, course1_theory_fragment)
+                                    .addToBackStack(null)
                                     .commit();
                             return true;
                         }
@@ -75,10 +77,19 @@ public class MainActivity extends AppCompatActivity {
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.fragment1, course1_test_fragment)
+                                    .addToBackStack(null)
                                     .commit();
                             return true;
                         }
-
+                        else if(Current_Fragment.now_fragment == 4)
+                        {
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment1, course2_test_fragment)
+                                    .addToBackStack(null)
+                                    .commit();
+                            return true;
+                        }
 
                     case R.id.current_course_btn:
 
@@ -87,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                 .replace(R.id.fragment1, historyFragment)
                                 .commit();
                         return true;
+
                     case R.id.about_btn:
 
                         getSupportFragmentManager()

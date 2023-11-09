@@ -63,6 +63,8 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
 
     private ConstraintLayout constraintLayout;
 
+    private Result_Test_Fragment result_test_fragment = new Result_Test_Fragment();
+
 
     public Course1_Test_Fragment() {
         // Required empty public constructor
@@ -272,7 +274,12 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
         }
         else if (current_index_question == questions.size())
         {
-            // завершить тест
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment1, result_test_fragment)
+                    .addToBackStack(null)
+                    .commit();
+
         }
         else
         {
