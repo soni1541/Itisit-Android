@@ -109,13 +109,17 @@ public class HistoryFragment extends Fragment {
             TextView name_course_now_text = new TextView(this.getContext());
             name_course_now_text.setText(course_now.name_course_now);
 
-            //name_course_now_text.setTypeface(getResources().getFont(R.font.source_code_pro_bold));
+            name_course_now_text.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceCodePro_Bold.ttf"));
 
             TextView name_content_course_now_text = new TextView(this.getContext());
             name_content_course_now_text.setText(course_now.name_content_course_now);
 
+            name_content_course_now_text.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceCodePro_Regular.ttf"));
+
             TextView date_text = new TextView(this.getContext());
             date_text.setText(course_now.date);
+
+            date_text.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceCodePro_Regular.ttf"));
 
 
             LinearLayout linearLayout_course = new LinearLayout(this.getContext());
