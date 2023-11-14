@@ -5,4 +5,5 @@ import java.util.List;
 
 public class History_Courses {
     public static List<Current_Course> currentCourses = new ArrayList<Current_Course>();
+    public static List<String> date;
 }

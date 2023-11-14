@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitleTextAppearance(this, R.style.SourseCodeProBoldTextAppearance);
         toolbar.setTitle("ITISIT");
 
+
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -117,7 +118,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bottomNavigationView.setSelectedItemId(R.id.home_btn);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Может быть другой код
+                onBackPressed();
+            }
+        });
     }
+
+
 
     public void click_start_content_course(View view) {
         Current_Fragment.now_fragment = 1;

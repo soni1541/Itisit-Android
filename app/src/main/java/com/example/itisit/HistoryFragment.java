@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -64,7 +65,14 @@ public class HistoryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setTitle("История");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(false);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -77,6 +85,13 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setTitle("История");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(false);
 
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
@@ -96,14 +111,19 @@ public class HistoryFragment extends Fragment {
 
             //name_course_now_text.setTypeface(getResources().getFont(R.font.source_code_pro_bold));
 
-
             TextView name_content_course_now_text = new TextView(this.getContext());
             name_content_course_now_text.setText(course_now.name_content_course_now);
+
+            TextView date_text = new TextView(this.getContext());
+            date_text.setText(course_now.date);
+
 
             LinearLayout linearLayout_course = new LinearLayout(this.getContext());
 
             linearLayout_course.addView(name_course_now_text);
             linearLayout_course.addView(name_content_course_now_text);
+            linearLayout_course.addView(date_text);
+
             linearLayout_course.setOrientation(LinearLayout.VERTICAL);
 
             linearLayout_course.setPadding(0,0,0,60);

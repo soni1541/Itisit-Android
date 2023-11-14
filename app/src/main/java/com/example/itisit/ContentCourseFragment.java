@@ -15,6 +15,11 @@ import android.widget.LinearLayout;
 
 import android.view.View.OnClickListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ContentCourseFragment#newInstance} factory method to
@@ -46,7 +51,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
     public ContentCourseFragment() {
         // Required empty public constructor
-        course_now = new Current_Course();
+
     }
 
     /**
@@ -71,6 +76,12 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setTitle("ОСНОВЫ С++");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -144,16 +155,23 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
 
             case R.id.button_start_course1:
             {
+                course_now = new Current_Course();
+                // Текущее время
+                Date currentDate = new Date();
+// Форматирование времени как "день.месяц.год"
+                DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                String dateText = dateFormat.format(currentDate);
+// Форматирование времени как "часы:минуты:секунды"
+                DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                String timeText = timeFormat.format(currentDate);
 
-                if(course_now.name_content_course_now != "Введение в С++")
-                {
-                    course_now.name_course_now = "ОСНОВЫ С++";
-                    course_now.name_content_course_now = "Введение в С++";
-                    Current_Course course = new Current_Course();
-                    course.name_course_now = "ОСНОВЫ С++";
-                    course.name_content_course_now = "Введение в С++";
-                    History_Courses.currentCourses.add(course);
-                }
+                String date = timeText + "   " + dateText;
+
+                course_now.name_course_now = "ОСНОВЫ С++";
+                course_now.name_content_course_now = "Введение в С++";
+                course_now.date = date;
+                History_Courses.currentCourses.add(course_now);
+
 
                 Current_Fragment.now_fragment = 2;
 
@@ -168,15 +186,23 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
             }
             case R.id.button_start_course2:
             {
-                if(course_now.name_content_course_now != "Переменные")
-                {
-                    course_now.name_course_now = "ОСНОВЫ С++";
-                    course_now.name_content_course_now = "Переменные";
-                    Current_Course course = new Current_Course();
-                    course.name_course_now = "ОСНОВЫ С++";
-                    course.name_content_course_now = "Переменные";
-                    History_Courses.currentCourses.add(course);
-                }
+                course_now = new Current_Course();
+
+                // Текущее время
+                Date currentDate = new Date();
+// Форматирование времени как "день.месяц.год"
+                DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                String dateText = dateFormat.format(currentDate);
+// Форматирование времени как "часы:минуты:секунды"
+                DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                String timeText = timeFormat.format(currentDate);
+
+                String date = timeText + "   " + dateText;
+
+                course_now.name_course_now = "ОСНОВЫ С++";
+                course_now.name_content_course_now = "Переменные";
+                course_now.date = date;
+                History_Courses.currentCourses.add(course_now);
 
 
                 getParentFragmentManager()

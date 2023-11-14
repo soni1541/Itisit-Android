@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setTitle("ITISIT");
         ((AppCompatActivity) getActivity()).getSupportActionBar()

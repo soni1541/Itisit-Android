@@ -142,7 +142,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 .setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayShowHomeEnabled(true);
-        setRetainInstance(true);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -153,6 +153,14 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setTitle("ВВЕДЕНИЕ В С++");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(true);
+
         View view = inflater.inflate(R.layout.fragment_course1__theory_, container, false);
 
         b_forward = (ImageButton) view.findViewById(R.id.imageButton_forward);
