@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/source_code_pro"
-                android:text="Изучение программирования на С++"
+                android:text="Приложение для изучения языка программирования С++ на Android"
                 android:textColor="#000000" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_margin="10dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/source_code_pro"
-                android:text="Приложение является дополнением к курсам ITISIT"
+                android:text="Предлагаются уроки в виде лекций, чтение которых занимает не более 5 минут. А также задания для отработки навыков."
                 android:textColor="#000000" />
 
             <TextView

@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -99,9 +100,12 @@ public class HistoryFragment extends Fragment {
 
         List<Current_Course> courses_history = History_Courses.currentCourses;
 
+        CardView cardView = (CardView) view.findViewById(R.id.cardview_history);
+
         if(courses_history.size() > 0)
         {
             linearLayout_history.setVisibility(View.VISIBLE);
+            cardView.setVisibility(View.VISIBLE);
         }
 
         for(Current_Course course_now : courses_history)

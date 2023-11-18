@@ -70,6 +70,11 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setTitle("ITISIT");
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
+                .setDisplayShowHomeEnabled(false);
+
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }
