@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Course1_Theory_Fragment course1_theory_fragment = new Course1_Theory_Fragment();
 
+    private Course2_Theory_Fragment course2_theory_fragment = new Course2_Theory_Fragment();
+
     private Course1_Test_Fragment course1_test_fragment = new Course1_Test_Fragment();
 
     private Course2_Test_Fragment course2_test_fragment = new Course2_Test_Fragment();
@@ -91,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
                         {
                             getSupportFragmentManager()
                                     .beginTransaction()
+                                    .replace(R.id.fragment1, course2_theory_fragment)
+                                    .addToBackStack(null)
+                                    .commit();
+                            return true;
+                        }
+                        else if(Current_Fragment.now_fragment == 5)
+                        {
+                            getSupportFragmentManager()
+                                    .beginTransaction()
                                     .replace(R.id.fragment1, course2_test_fragment)
                                     .addToBackStack(null)
                                     .commit();
@@ -124,7 +135,52 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Может быть другой код
-                onBackPressed();
+                //onBackPressed();
+
+                if(Current_Fragment.now_fragment == 1)
+                {
+                    Current_Fragment.now_fragment = 0;
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment1, homeFragment)
+                            .commit();
+                }
+                else if(Current_Fragment.now_fragment == 2)
+                {
+                    Current_Fragment.now_fragment = 1;
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment1, contentCourseFragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+                else if(Current_Fragment.now_fragment == 3)
+                {
+                    Current_Fragment.now_fragment = 2;
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment1, course1_theory_fragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+                else if(Current_Fragment.now_fragment == 4)
+                {
+                    Current_Fragment.now_fragment = 2;
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment1, contentCourseFragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+                else if(Current_Fragment.now_fragment == 5)
+                {
+                    Current_Fragment.now_fragment = 4;
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment1, course2_theory_fragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
     }

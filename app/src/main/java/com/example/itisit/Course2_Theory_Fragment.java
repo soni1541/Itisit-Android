@@ -222,7 +222,7 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
         }
         else if (current_index_text == texts_theories.length)
         {
-            Current_Fragment.now_fragment = 4;
+            Current_Fragment.now_fragment = 5;
             getParentFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment1, course2_test_fragment)

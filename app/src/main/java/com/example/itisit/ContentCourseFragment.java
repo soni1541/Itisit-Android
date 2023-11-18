@@ -205,6 +205,8 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
                 History_Courses.currentCourses.add(course_now);
 
 
+                Current_Fragment.now_fragment = 4;
+
                 getParentFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment1, course2_theory_fragment)
