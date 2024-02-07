@@ -43,6 +43,9 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     private String[] texts_headers;
     private String[] texts_theories;
 
+    private String[] texts_headers_en;
+    private String[] texts_theories_en;
+
     private int current_index_text;
 
     private Course1_Test_Fragment course1_test_fragment = new Course1_Test_Fragment();
@@ -112,6 +115,67 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 "Язык C++ чувствителен к РЕГИСТРУ: заглавные и маленькие буквы различаются."
         };
 
+        texts_headers_en = new String[]{
+                //0
+                "Who is C++?",
+                //1
+                "Why С++?",
+                //2
+                "Development environments",
+                //3
+                "Project structure",
+                //4
+                "Program structure",
+                //5
+                "Program structure",
+                //6
+                "The syntax of C++"
+        };
+
+        texts_theories_en = new String[]{
+                //0
+                "The C++ programming language is a high-level compiled general-purpose programming language with static typing, which is suitable for creating a wide variety of applications.The language originated in the early 1980s, when Bjorn Stroustrup, an employee of Bell Labs, came up with a number of improvements to the C language.",
+                //1
+                "In C++, you can write LOW-LEVEL code by accessing memory directly. Or you can use HIGH-LEVEL concepts like OOP and FUNCTIONAL PROGRAMMING.\\n\\n C++ has many high-level TOOLS, CONSTRUCTS and LIBRARIES, which allows you to significantly speed up development\\n\\nC++ gives developers so many opportunities that you can write anything on it: from drivers to websites.\\n\"+\n" +
+                        "\" It is also not only VERSATILE, but also very PRODUCTIVE.",
+                //2
+                "A development environment (IDE) is a program or several programs that you use to create programs.\n\nTop 7 popular IDE for C++ programming:\n\n1. Microsoft Visual Studio.\n2. Xcode.\n3. NetBeans.\n4. Eclipse.\n5. CodeLite.\n6. Qt Creator.\n7. Code::Blocks.",
+                //3
+                "1. Header Files - designed to store header files with an extension.h\n"+
+                        "\n"+
+                        "2. Resource Files - designed to store resource files, such as images\n"+
+                        "\n"+
+                        "3. Source Files - stores source code files\n\n\n"+
+                        "By default, the Source Files directory contains one source code file is MyApp.cpp\n(project name + .cpp file extension).",
+                //4
+                "The source code of the first program:\n\n\n" +
+                        "#include <iostream>\n\n" +
+                        "using namespace std;\n\n" +
+                        "int main()\n" +
+                        "{\n" +
+                        " cout << \"Hello World\";\n\n" +
+                        " return 0;" +
+                        "\n}",
+                //5
+                "Let's analyze the code by lines:\n\n\n"+
+                        "#include <iostream>\n\n"+
+                        "// namespace disclosure\n"+
+                        "using namespace std;\n\n"+
+                        "// the main function in which the program execution begins\n"+
+                        "int main()\n"+
+                        "{\n"+
+                        "// calling the message \"Hello World\" on the screen.\n"+
+                "cout <<\"Hello World\";\n\n"+
+                "// terminating the main() function and returning the value 0 to the calling process.\n" +
+                "return 0;" +
+                "\n}",
+                //6
+                "A C++ program is a sequence of commands. Most commands should end with a SEMICOLON.\n\n"+
+                        " The program structure is formed by CURLY BRACKETS, i.e. function blocks, if blocks, loops, etc. are specified using curly brackets.\n\n" +
+                        "INDENTATION in a C++ program has no meaning for the compiler\n\n"+
+                        "The C++ language is CASE sensitive: uppercase and lowercase letters differ."
+        };
+
         current_index_text = 0;
     }
 
@@ -137,7 +201,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setTitle("ВВЕДЕНИЕ В С++");
+                .setTitle(getString(R.string.content_course1_name));
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
@@ -155,7 +219,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         // Inflate the layout for this fragment
 
         ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setTitle("ВВЕДЕНИЕ В С++");
+                .setTitle(getString(R.string.content_course1_name));
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()

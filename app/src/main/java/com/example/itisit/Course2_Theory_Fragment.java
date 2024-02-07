@@ -42,6 +42,9 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
     private String[] texts_headers;
     private String[] texts_theories;
 
+    private String[] texts_headers_en;
+    private String[] texts_theories_en;
+
     private Course2_Test_Fragment course2_test_fragment = new Course2_Test_Fragment();
     private int current_index_text;
 
@@ -70,7 +73,7 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
                 "ПЕРЕМЕННАЯ - это выделенная ячейка в памяти под определенный тип данных. \n\nСами же ячейки постоянно хранятся на компьютере пользователя. Их мы можем заполнять различными значениями, модифицировать и использовать в наших целях.",
                 //1
                 "Перед использованием любую переменную надо определить.\n\nСинтаксис определения переменной:\nТИП_переменной ИМЯ_переменной;\n\nПеременная имеет тип, имя и значение. Тип определяет, какие именно данные может хранить переменная.\n\n"+
-                "Например, определение переменной:\n\n" +
+                        "Например, определение переменной:\n\n" +
                         "int sum;",
                 //2
                 "ИМЕНА переменных задаются следующим образом:\n" +
@@ -81,10 +84,10 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
 
                 //3
                 "int - это целый тип, может хранить в себе только целые числа.\n\n" +
-                "float - данный тип позволяет хранить не только целую часть, но и дробную.\n\n" +
-                "double - данный тип имеет более высокую точность, чем float (позволяет хранить больше чисел после запятой).\n\n" +
-                "char - в данный тип данных можно записывать отдельные символы (абсолютно любые).\n\n" +
-                "bool - хранит в себе значения логического типа: “правду” - true, либо “ложь” - false.",
+                        "float - данный тип позволяет хранить не только целую часть, но и дробную.\n\n" +
+                        "double - данный тип имеет более высокую точность, чем float (позволяет хранить больше чисел после запятой).\n\n" +
+                        "char - в данный тип данных можно записывать отдельные символы (абсолютно любые).\n\n" +
+                        "bool - хранит в себе значения логического типа: “правду” - true, либо “ложь” - false.",
                 //4
                 "Присвоение переменной начального значения называется инициализацией.\n\n" +
                         "Виды инициализации:\n" +
@@ -103,7 +106,7 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
                         "int age1 {22 + 5};\n" +
                         "int age2 (22 + 5);\n" +
                         "int age3 = 22 + 5;\n\n" +
-                "Можно сразу инициализировать несколько переменных:\n\n" +
+                        "Можно сразу инициализировать несколько переменных:\n\n" +
                         "int age1 {22}, age2 (23), age3 = 24;",
                 //6
                 "Ключевой особенностью переменных является то, что мы можем изменять их значения:\n\n" +
@@ -117,7 +120,82 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
                         "  age = 38;\n" +
                         "  std::cout << \"Age3 = \" << age;\n" +
                         "}\n\n" +
-                "Результат программы:\n" +
+                        "Результат программы:\n" +
+                        "Age1 = 22\n" +
+                        "Age2 = 23\n" +
+                        "Age3 = 38"
+        };
+
+        texts_headers_en = new String[]{
+                //0
+                "What is a variable?",
+                //1
+                "Defining a variable",
+                //2
+                "Naming a variable",
+                //3
+                "Standard data types",
+                //4
+                "Initializing a variable",
+                //5
+                "Initializing a variable",
+                //6
+                "Changing the value"
+        };
+
+        texts_theories_en = new String[]{
+                //0
+                "A VARIABLE is a dedicated memory location for a specific data type. \n\n The same cells are permanently stored on the user's computer. We can fill them with different values, modify them and use them for our purposes.",
+                //1
+                "Before using any variable, it is necessary to define it.\nPsyntax of variable definition:Variable name;\n\n A variable has a type, a name, and a value. The type determines exactly what data a variable can store.\n\n"+
+                        " For example, the definition of a variable:\n\n" +
+                        "int sum;",
+                //2
+                "Variable NAMES are set as follows:\n"+
+                        "\n"+
+                        "- The variable name cannot start with a digit.\n\n"+
+                        "- There can be no spaces in the variable name, as well as special characters (like ; # # % or /).\n\n"+
+                        "- The variable name cannot match other previously declared names (functions, variables, standard operators, etc.).",
+
+                //3
+                "int is an integer type, it can store only integers.\n\n"+
+                        "float - this type allows you to store not only the integer part, but also the fractional part.\n\n"+
+                        "double - this type has a higher precision than float (it allows you to store more numbers after the decimal point).\n\n"+
+                        "char - individual characters (absolutely any) can be written to this data type.\n\n"+
+                        "bool - stores logical type values: “true\" - true, or “false\" - false.",
+                //4
+                "Assigning an initial value to a variable is called initialization.\n\n"+
+                        "Types of initialization:\n"+
+                        "\n"+
+                        "1. Assignment notation\n\n"+
+                        "int age;\n"+
+                        "age = 20;\n"+
+                        "\n"+
+                        "2. Functional notation\n\n"+
+                        "int age (38);\n"+
+                        "\n"+
+                        "3. Initialization in curly brackets\n\n"+
+                        "int age {38};\n",
+                //5
+                "In all three cases, the value assigned to a variable can represent a complex calculated expression. For example:\n\n"+
+                        "int age1 {22 + 5};\n"+
+                        "int age2 (22 + 5);\n"+
+                        "int age3 = 22 + 5;\n\n"+
+                        "Several variables can be initialized at once:\n\n" +
+                        "int age1 {22}, age2 (23), age3 = 24;",
+                //6
+                "The key feature of variables is that we can change their values:\n\n" +
+                        "#include <iostream>\n" +
+                        "int main()\n" +
+                        "{\n" +
+                        "  int age = 22;\n" +
+                        "  std::cout << \"Age1 = \" << age;\n" +
+                        "  age = 23;\n" +
+                        "  std::cout << \"Age2 = \" << age;\n" +
+                        "  age = 38;\n" +
+                        "  std::cout << \"Age3 = \" << age;\n" +
+                        "}\n\n" +
+                        "The result of the program:\n" +
                         "Age1 = 22\n" +
                         "Age2 = 23\n" +
                         "Age3 = 38"
