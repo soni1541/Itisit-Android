@@ -59,7 +59,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/source_code_pro_bold"
-                                android:text="ВВЕДЕНИЕ В С++"
+                                android:text="@string/content_course1_name"
                                 android:textAlignment="textStart"
                                 android:textColor="#000000"
                                 android:textSize="20sp" />
@@ -108,7 +108,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Почему С++? История языка"
+                                android:text="@string/content_course1_theme1"
                                 android:textColor="#000000" />
 
                         </LinearLayout>
@@ -136,7 +136,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Среды разработки"
+                                android:text="@string/content_course1_theme2"
                                 android:textColor="#000000" />
 
                         </LinearLayout>
@@ -164,7 +164,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
-                                android:text="Структура проекта"
+                                android:text="@string/content_course1_theme3"
                                 android:textColor="#000000" />
 
                         </LinearLayout>
@@ -192,7 +192,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
-                                android:text="Синтаксис языка С++"
+                                android:text="@string/content_course1_theme4"
                                 android:textColor="#000000" />
 
                         </LinearLayout>
@@ -208,7 +208,7 @@
                             android:fontFamily="@font/source_code_pro_bold"
                             android:onClick="click_start_course1"
                             android:padding="5dp"
-                            android:text="Начать" />
+                            android:text="@string/btn_start" />
 
                     </LinearLayout>
 
@@ -255,7 +255,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/source_code_pro_bold"
-                                android:text="ПЕРЕМЕННЫЕ"
+                                android:text="@string/content_course2_name"
                                 android:textAlignment="textStart"
                                 android:textColor="#000000"
                                 android:textSize="20sp" />
@@ -303,7 +303,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
-                                android:text="Переменные"
+                                android:text="@string/content_course2_theme1"
                                 android:textColor="#000000" />
                         </LinearLayout>
 
@@ -329,7 +329,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
-                                android:text="Типы данных"
+                                android:text="@string/content_course2_theme2"
                                 android:textColor="#000000" />
                         </LinearLayout>
 
@@ -354,7 +354,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
-                                android:text="Константы"
+                                android:text="@string/content_course2_theme3"
                                 android:textColor="#000000" />
                         </LinearLayout>
 
@@ -379,7 +379,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
-                                android:text="Объявление переменных"
+                                android:text="@string/content_course2_theme4"
                                 android:textColor="#000000" />
 
                         </LinearLayout>
@@ -394,7 +394,7 @@
                             android:backgroundTint="#000000"
                             android:fontFamily="@font/source_code_pro_bold"
                             android:padding="5dp"
-                            android:text="Начать" />
+                            android:text="@string/btn_start" />
 
                     </LinearLayout>
 

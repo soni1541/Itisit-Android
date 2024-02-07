@@ -326,8 +326,6 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 break;
             }
             case R.id.button_check: {
-
-                Log.d("START", "START CHECK");
                 boolean result = true;
 
                 Question question_now = questions.get(current_index_question);
@@ -335,7 +333,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
                 if(question_now.id_answers.size() > 1)
                 {
-                    Log.d("CHECKBOX", "Я в боксе");
+
                     for (CheckBox checkBox_question: checkBoxes)
                     {
                         int id_check_now = checkBox_question.getId();

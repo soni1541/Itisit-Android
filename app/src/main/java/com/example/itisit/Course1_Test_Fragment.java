@@ -333,14 +333,11 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                         int id_check_now = checkBox_question.getId();
                         if(checkBox_question.isChecked())
                         {
-                            //Log.d("ID_CHECK_BOX", String.valueOf(checkBox_question.getId()));
                             if(questions.get(current_index_question).id_answers.contains(id_check_now))
                             {
-                                //Правильно
                             }
                             else
                             {
-                                //Неправильно
                                 result = false;
                                 break;
                             }
@@ -349,11 +346,9 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                         {
                             if(!questions.get(current_index_question).id_answers.contains(id_check_now))
                             {
-                                //Правильно
                             }
                             else
                             {
-                                //Неправильно
                                 result = false;
                                 break;
                             }

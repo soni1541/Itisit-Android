@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#000000"
                     android:fontFamily="@font/source_code_pro_bold"
-                    android:text="ПРОВЕРИТЬ" />
+                    android:text="@string/btn_check" />
 
                 <TextView
                     android:id="@+id/textView_check_answer"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/source_code_pro"
                     android:gravity="right"
-                    android:text="Всё верно! Молодец\nДвигаемся дальше"
+                    android:text="@string/result_test"
                     android:visibility="invisible" />
             </LinearLayout>
 
@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/source_code_pro"
                     android:gravity="center"
-                    android:text="Вернуться к теории" />
+                    android:text="@string/btn_theory" />
             </LinearLayout>
 
         </LinearLayout>

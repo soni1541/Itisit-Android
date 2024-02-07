@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Itisit</string>
+    <string name="menu_main">Main</string>
+    <string name="menu_history">History</string>
+    <string name="menu_about">About</string>
+    <string name="about_description1">An application for learning the C++ programming language on Android</string>
+    <string name="about_description2">Lessons are offered in the form of lectures, which take no more than 5 minutes to read. As well as tasks for practicing skills.</string>
+    <string name="about_author">Author</string>
+    <string name="about_author_name">Kazunina Sofya</string>
+    <string name="main_name_course1">The basics of С++</string>
+    <string name="btn_learn">LEARN</string>
+    <string name="btn_start">START</string>
+    <string name="content_course1_name">INTRODUCTION TO C++</string>
+    <string name="content_course1_theme1">Why C++? The history of the language</string>
+    <string name="content_course1_theme2">Development environments</string>
+    <string name="content_course1_theme3">Project structure</string>
+    <string name="content_course1_theme4">The syntax of the C++ language</string>
+    <string name="content_course2_name">VARIABLES</string>
+    <string name="content_course2_theme1">Variables</string>
+    <string name="content_course2_theme2">Data types</string>
+    <string name="content_course2_theme3">Constants</string>
+    <string name="content_course2_theme4">Declaring variables</string>
+    <string name="result_test_congratulation">Congratulations!</string>
+    <string name="btn_next">NEXT</string>
+    <string name="btn_check">CHECK</string>
+    <string name="btn_theory">Back to theory</string>
+    <string name="result_test">That\'s right! Well done\\nMoving on</string>
+</resources>

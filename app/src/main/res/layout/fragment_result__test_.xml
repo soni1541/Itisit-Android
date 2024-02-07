@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_code_pro_bold"
                 android:gravity="center"
-                android:text="Поздравляем!"
+                android:text="@string/result_test_congratulation"
                 android:textSize="24sp" />
 
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#000000"
-                android:text="Продолжить" />
+                android:text="@string/btn_next" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

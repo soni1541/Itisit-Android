@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/source_code_pro_bold"
-                android:text="ОСНОВЫ С++"
+                android:text="@string/main_name_course1"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp" />
@@ -60,7 +60,7 @@
                 android:onClick="click_start_content_course"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
-                android:text="ИЗУЧИТЬ"
+                android:text="@string/btn_learn"
                 android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

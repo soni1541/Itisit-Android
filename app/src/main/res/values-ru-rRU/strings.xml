@@ -1,37 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Itisit</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="menu_main">Главная</string>
     <string name="menu_history">История</string>
     <string name="menu_about">О приложении</string>
-
-    <string name="main_name_course1">ОСНОВЫ С++</string>
-    <string name="btn_learn">ИЗУЧИТЬ</string>
-
     <string name="about_description1">Приложение для изучения языка программирования С++ на Android</string>
     <string name="about_description2">Предлагаются уроки в виде лекций, чтение которых занимает не более 5 минут. А также задания для отработки навыков.</string>
     <string name="about_author">Автор</string>
     <string name="about_author_name">Казунина Софья</string>
-
-
+    <string name="main_name_course1">ОСНОВЫ С++</string>
+    <string name="btn_learn">ИЗУЧИТЬ</string>
+    <string name="btn_start">НАЧАТЬ</string>
     <string name="content_course1_name">ВВЕДЕНИЕ В С++</string>
     <string name="content_course1_theme1">Почему С++? История языка</string>
     <string name="content_course1_theme2">Среды разработки</string>
     <string name="content_course1_theme3">Структура проекта</string>
     <string name="content_course1_theme4">Синтаксис языка С++</string>
-    <string name="btn_start">НАЧАТЬ</string>
-
     <string name="content_course2_name">ПЕРЕМЕННЫЕ</string>
     <string name="content_course2_theme1">Переменные</string>
     <string name="content_course2_theme2">Типы данных</string>
     <string name="content_course2_theme3">Константы</string>
     <string name="content_course2_theme4">Объявление переменных</string>
-
     <string name="result_test_congratulation">Поздравляем!</string>
     <string name="btn_next">ПРОДОЛЖИТЬ</string>
-
-    <string name="result_test">Всё верно! Молодец\nДвигаемся дальше</string>
     <string name="btn_check">ПРОВЕРИТЬ</string>
     <string name="btn_theory">Вернуться к теории</string>
-
+    <string name="result_test">Всё верно! Молодец\\nДвигаемся дальше</string>
 </resources>
