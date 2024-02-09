@@ -32,6 +32,7 @@
 
     <string name="result_test">Всё верно! Молодец\nДвигаемся дальше</string>
     <string name="btn_check">ПРОВЕРИТЬ</string>
+    <string name="btn_check2">Проверить ещё раз</string>
     <string name="btn_theory">Вернуться к теории</string>
 
 </resources>

@@ -52,6 +52,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
     private ImageButton b_theory;
 
     private List<Question> questions;
+    private List<Question> questions_en;
 
     private List<CheckBox> checkBoxes;
     private List<RadioButton> radioButtons;
@@ -146,6 +147,83 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
         questions.add(q7);
 
 
+        questions_en = new ArrayList<Question>();
+
+        Question q1_en = new Question();
+        q1_en.header = "What are the advantages of C++?";
+        q1_en.text_answers = new ArrayList<String>();
+        q1_en.text_answers.add("Universality");
+        q1_en.text_answers.add("Performance");
+        q1_en.text_answers.add("You can write both low-level and high-level codes");
+        q1_en.text_answers.add("Using ready-made libraries and designs");
+        q1_en.id_answers = new ArrayList<Integer>();
+        q1_en.id_answers.add(0);
+        q1_en.id_answers.add(1);
+        q1_en.id_answers.add(2);
+        q1_en.id_answers.add(3);
+        questions_en.add(q1_en);
+
+        Question q2_en = new Question();
+        q2_en.header = "One of the main tools that programmers use is:";
+        q2_en.text_answers = new ArrayList<String>();
+        q2_en.text_answers.add("Drivers");
+        q2_en.text_answers.add("Development Environments (IDE)");
+        q2_en.text_answers.add("Utilities");
+        q2_en.id_answers = new ArrayList<Integer>();
+        q2_en.id_answers.add(1);
+        questions_en.add(q2_en);
+
+        Question q3_en = new Question();
+        q3_en.header = "Which file contains the source code?";
+        q3_en.text_answers = new ArrayList<String>();
+        q3_en.text_answers.add("source.cpp");
+        q3_en.text_answers.add("windows.h");
+        q3_en.text_answers.add("source.h");
+        q3_en.id_answers = new ArrayList<Integer>();
+        q3_en.id_answers.add(0);
+        questions_en.add(q3_en);
+
+        Question q4_en = new Question();
+        q4_en.header = "What does the beginning of any program look like?";
+        q4_en.text_answers = new ArrayList<String>();
+        q4_en.text_answers.add("include<iostream>\nusing namespace;\n int main()\n{}");
+        q4_en.text_answers.add("double main()\n{}");
+        q4_en.text_answers.add("#include<iostream>\nusing namespace std;\n int main()\n{}");
+        q4_en.id_answers = new ArrayList<Integer>();
+        q4_en.id_answers.add(2);
+        questions_en.add(q4_en);
+
+        Question q5_en = new Question();
+        q5_en.header = "Each instruction must end with:";
+        q5_en.text_answers = new ArrayList<String>();
+        q5_en.text_answers.add(";");
+        q5_en.text_answers.add(":");
+        q5_en.text_answers.add(".");
+        q5_en.id_answers = new ArrayList<Integer>();
+        q5_en.id_answers.add(0);
+        questions_en.add(q5_en);
+
+        Question q6_en = new Question();
+        q6_en.header = "Where is the input function written correctly?";
+        q6_en.text_answers = new ArrayList<String>();
+        q6_en.text_answers.add("int a;\ncin a;");
+        q6_en.text_answers.add("int a;\ncin >> a;");
+        q6_en.text_answers.add("int a;\ncin << a;");
+        q6_en.id_answers = new ArrayList<Integer>();
+        q6_en.id_answers.add(1);
+        questions_en.add(q6_en);
+
+        Question q7_en = new Question();
+        q7_en.header = "Select a one-line comment:";
+        q7_en.text_answers = new ArrayList<String>();
+        q7_en.text_answers.add("## I'm a comment");
+        q7_en.text_answers.add("** I'm a comment");
+        q7_en.text_answers.add("// I'm a comment");
+        q7_en.id_answers = new ArrayList<Integer>();
+        q7_en.id_answers.add(2);
+        questions_en.add(q7_en);
+
+
         checkBoxes = new ArrayList<CheckBox>();
         radioButtons = new ArrayList<RadioButton>();
 
@@ -233,7 +311,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
             Question question_now = questions.get(current_index_question);
 
             b_check.setVisibility(View.VISIBLE);
-            b_check.setText("ПРОВЕРИТЬ");
+            b_check.setText(getString(R.string.btn_check));
             b_check.setBackgroundColor(Color.BLACK);
             text_check_answer.setVisibility(View.INVISIBLE);
             b_back.setVisibility(View.INVISIBLE);
@@ -385,7 +463,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                 if(result)
                 {
                     b_check.setVisibility(View.INVISIBLE);
-                    text_check_answer.setText("Всё верно! Молодец!\nДвигаемся дальше");
+                    text_check_answer.setText(getString(R.string.result_test));
                     text_check_answer.setTextColor(Color.parseColor("#5B9C34"));
                     text_check_answer.setVisibility(View.VISIBLE);
 
@@ -400,7 +478,7 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
                 }
                 else
                 {
-                    b_check.setText("Проверить ещё раз");
+                    b_check.setText(getString(R.string.btn_check2));
                     b_check.setBackgroundColor(Color.parseColor("#F35D78"));
 
                     image_result.setImageResource(R.drawable.incorrect);

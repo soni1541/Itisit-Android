@@ -48,6 +48,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
     private ImageButton b_theory;
 
     private List<Question> questions;
+    private List<Question> questions_en;
 
     private List<CheckBox> checkBoxes;
     private List<RadioButton> radioButtons;
@@ -155,6 +156,94 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         questions.add(q7);
 
 
+        questions_en = new ArrayList<Question>();
+
+        Question q1_en = new Question();
+        q1_en.header = "Where is the variable initialized correctly?";
+        q1_en.text_answers = new ArrayList<String>();
+        q1_en.text_answers.add("int a");
+        q1_en.text_answers.add("double a = true;");
+        q1_en.text_answers.add("int a = 5;");
+        q1_en.text_answers.add("a = 3;");
+        q1_en.id_answers = new ArrayList<Integer>();
+        q1_en.id_answers.add(2);
+        questions_en.add(q1_en);
+
+        Question q2_en = new Question();
+        q2_en.header = "int a,b; - declaration of which variables? ";
+        q2_en.text_answers = new ArrayList<String>();
+        q2_en.text_answers.add("Real");
+        q2_en.text_answers.add("Integers");
+        q2_en.text_answers.add("Logical");
+        q2_en.id_answers = new ArrayList<Integer>();
+        q2_en.id_answers.add(1);
+        questions_en.add(q2_en);
+
+        Question q3_en = new Question();
+        q3_en.header = "Which variable names are correct?";
+        q3_en.text_answers = new ArrayList<String>();
+        q3_en.text_answers.add("1Ва");
+        q3_en.text_answers.add("D234");
+        q3_en.text_answers.add(" _gh");
+        q3_en.text_answers.add("D(f)");
+        q3_en.id_answers = new ArrayList<Integer>();
+        q3_en.id_answers.add(1);
+        q3_en.id_answers.add(2);
+        questions_en.add(q3_en);
+
+        Question q4_en = new Question();
+        q4_en.header = "Which of the options is not correct?";
+        q4_en.text_answers = new ArrayList<String>();
+        q4_en.text_answers.add("bool a = 1;");
+        q4_en.text_answers.add("bool b = 0;");
+        q4_en.text_answers.add("bool c = 'k';");
+        q4_en.text_answers.add("bool d = 3.4;");
+        q4_en.text_answers.add("All are correct");
+        q4_en.text_answers.add("All are wrong");
+        q4_en.id_answers = new ArrayList<Integer>();
+        q4_en.id_answers.add(4);
+        questions_en.add(q4_en);
+
+        Question q5_en = new Question();
+        q5_en.header = "Which two expressions are true for variables in C++?";
+        q5_en.text_answers = new ArrayList<String>();
+        q5_en.text_answers.add("Variables must have a data type");
+        q5_en.text_answers.add("Variables must be declared before they are used");
+        q5_en.text_answers.add("Variables do not have names");
+        q5_en.text_answers.add("Variables are preprocessor directives");
+        q5_en.id_answers = new ArrayList<Integer>();
+        q5_en.id_answers.add(0);
+        q5_en.id_answers.add(1);
+        questions_en.add(q5_en);
+
+        Question q6_en = new Question();
+        q6_en.header = "What result will be output? \n" +
+                "int x = 24;\n" +
+                "int y;\n" +
+                "y = x — 13;\n" +
+                "cout << y;";
+        q6_en.text_answers = new ArrayList<String>();
+        q6_en.text_answers.add("24");
+        q6_en.text_answers.add("13");
+        q6_en.text_answers.add("Garbage");
+        q6_en.text_answers.add("11");
+        q6_en.id_answers = new ArrayList<Integer>();
+        q6_en.id_answers.add(3);
+        questions_en.add(q6_en);
+
+        Question q7_en = new Question();
+        q7_en.header = "What result will be output?\n" +
+                "int x = 20 / 3;\n" +
+                "cout << x;";
+        q7_en.text_answers = new ArrayList<String>();
+        q7_en.text_answers.add("6");
+        q7_en.text_answers.add("7");
+        q7_en.text_answers.add("6.66");
+        q7_en.text_answers.add("6.0");
+        q7_en.id_answers = new ArrayList<Integer>();
+        q7_en.id_answers.add(0);
+        questions_en.add(q7_en);
+
         checkBoxes = new ArrayList<CheckBox>();
         radioButtons = new ArrayList<RadioButton>();
 
@@ -241,7 +330,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
 
             b_check.setVisibility(View.VISIBLE);
-            b_check.setText("ПРОВЕРИТЬ");
+            b_check.setText(getString(R.string.btn_check));
             b_check.setBackgroundColor(Color.BLACK);
             text_check_answer.setVisibility(View.INVISIBLE);
             b_back.setVisibility(View.INVISIBLE);
@@ -396,7 +485,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 if(result)
                 {
                     b_check.setVisibility(View.INVISIBLE);
-                    text_check_answer.setText("Всё верно! Молодец!\nДвигаемся дальше");
+                    text_check_answer.setText(getString(R.string.result_test));
                     text_check_answer.setTextColor(Color.parseColor("#5B9C34"));
                     text_check_answer.setVisibility(View.VISIBLE);
 
@@ -411,7 +500,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 }
                 else
                 {
-                    b_check.setText("Проверить ещё раз");
+                    b_check.setText(getString(R.string.btn_check2));
                     b_check.setBackgroundColor(Color.parseColor("#F35D78"));
 
                     image_result.setImageResource(R.drawable.incorrect);
