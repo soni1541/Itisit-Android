@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Course2_Theory_Fragment#newInstance} factory method to
@@ -227,7 +229,7 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setTitle("ПЕРЕМЕННЫЕ");
+                .setTitle(getString(R.string.content_course2_name));
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
@@ -295,8 +297,14 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
         if(current_index_text >= 0 &&
                 current_index_text < texts_theories.length)
         {
-            header_theory.setText(texts_headers[current_index_text]);
-            text_theory.setText(texts_theories[current_index_text]);
+            if(Locale.getDefault().getLanguage() == "en") {
+                header_theory.setText(texts_headers_en[current_index_text]);
+                text_theory.setText(texts_theories_en[current_index_text]);
+            }
+            else if (Locale.getDefault().getLanguage() == "ru") {
+                header_theory.setText(texts_headers[current_index_text]);
+                text_theory.setText(texts_theories[current_index_text]);
+            }
         }
         else if (current_index_text == texts_theories.length)
         {

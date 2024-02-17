@@ -77,7 +77,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setTitle("ОСНОВЫ С++");
+                .setTitle(getString(R.string.main_name_course1));
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
@@ -94,7 +94,7 @@ public class ContentCourseFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setTitle("ОСНОВЫ С++");
+                .setTitle(getString(R.string.main_name_course1));
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()

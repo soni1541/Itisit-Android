@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -308,7 +309,15 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
         if(current_index_question >= 0 &&
                 current_index_question < questions.size())
         {
-            Question question_now = questions.get(current_index_question);
+            Question question_now = questions.get(current_index_question);;
+            if(Locale.getDefault().getLanguage() == "en") {
+                question_now = questions_en.get(current_index_question);
+
+            }
+            else if (Locale.getDefault().getLanguage() == "ru") {
+                question_now = questions.get(current_index_question);
+            }
+
 
             b_check.setVisibility(View.VISIBLE);
             b_check.setText(getString(R.string.btn_check));
@@ -319,8 +328,8 @@ public class Course1_Test_Fragment extends Fragment implements View.OnClickListe
             constraintLayout.setBackgroundColor(Color.parseColor("#5B9C34"));
             image_result.setVisibility(View.INVISIBLE);
 
-
             header_test.setText(question_now.header);
+
 
             RadioGroup radioGroup = new RadioGroup(this.getContext());
 

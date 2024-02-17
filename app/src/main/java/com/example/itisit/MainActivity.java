@@ -5,13 +5,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitleTextAppearance(this, R.style.SourseCodeProBoldTextAppearance);
         toolbar.setTitle("ITISIT");
+
+//        Intent intent = new Intent(MainActivity.this, Receiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, REQUEST_CODE, intent, 0);
+//        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+//        am.setRepeating(am.RTC_WAKEUP, System.currentTimeInMillis(), am.INTERVAL_DAY*7, pendingIntent);
+
 
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -194,6 +206,16 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragment1, contentCourseFragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+
+    public void click_change_lang(View view) {
+        Locale locale = new Locale("ru-rRUs");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getApplicationContext().getResources().updateConfiguration(config, null);
+
     }
 
 

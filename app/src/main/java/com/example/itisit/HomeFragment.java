@@ -1,5 +1,8 @@
 package com.example.itisit;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +11,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +31,9 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ImageButton btn_lang;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -75,6 +85,42 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setDisplayShowHomeEnabled(false);
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        btn_lang = (ImageButton) view.findViewById(R.id.btn_change_lang);
+
+        if(Locale.getDefault().getLanguage() == "en")
+        {
+            btn_lang.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    set_language("ru");
+                }
+            });
+        }
+        else if (Locale.getDefault().getLanguage() == "ru") {
+            btn_lang.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    set_language("en");
+                }
+            });
+        }
+
+        return view;
+    }
+
+    private void set_language(String language_code){
+        Resources resources = this.getResources();
+        Configuration configuration = resources.getConfiguration();
+        Locale locale = new Locale(language_code);
+        Locale.setDefault(locale);
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment1, new HomeFragment())
+                .commit();
     }
 }

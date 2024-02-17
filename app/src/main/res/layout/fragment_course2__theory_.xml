@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_code_pro"
                 android:gravity="right"
-                android:text="Проверить\nзнания"
+                android:text="@string/text_start_test"
                 android:visibility="gone" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

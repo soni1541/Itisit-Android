@@ -1,5 +1,7 @@
 package com.example.itisit;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,127 +58,127 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     public Course1_Theory_Fragment() {
         // Required empty public constructor
 
-        texts_headers = new String[]{
-                //0
-                "Кто такой С++?",
-                //1
-                "Почему С++?",
-                //2
-                "Среды разработки",
-                //3
-                "Структура проекта",
-                //4
-                "Структура программы",
-                //5
-                "Структура программы",
-                //6
-                "Синтаксис С++"
-        };
+            texts_headers_en = new String[]{
+                    //0
+                    "Who is C++?",
+                    //1
+                    "Why С++?",
+                    //2
+                    "Development environments",
+                    //3
+                    "Project structure",
+                    //4
+                    "Program structure",
+                    //5
+                    "Program structure",
+                    //6
+                    "The syntax of C++"
+            };
 
-        texts_theories = new String[]{
-                //0
-                "Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.\n\nЯзык возник в начале 1980-х годов, когда сотрудник фирмы Bell Labs Бьёрн Страуструп придумал ряд усовершенствований к языку C.",
-                //1
-                "На C++ можно писать НИЗКОУРОВНЕВЫЙ код, обращаясь к памяти напрямую. Или можно использовать ВЫСОКОУРОВНЕВЫЕ концепции вроде ООП и ФУНКЦИОНАЛЬНОЕ ПРОГРАММИРОВАНИЕ.\n\nВ C++ есть много высокоуровневых ИНСТРУМЕНТОВ, КОНСТРУКЦИЙ и БИБЛИОТЕК, что позволяет значительно ускорить разработку\n\nC++ даёт разработчикам столько возможностей, что на нём можно писать что угодно: от драйверов до сайтов.\n" +
-                        "Также он не только УНИВЕРСАЛЬНЫЙ, но и очень ПРОИЗВОДИТЕЛЬНЫЙ.",
-                //2
-                "Среда разработки (IDE) — это программа или несколько программ, которые вы используете для создания программ.\n\nТоп 7 популярных IDE для программирования на С++:\n\n1. Microsoft Visual Studio.\n2. Xcode.\n3. NetBeans.\n4. Eclipse.\n5. CodeLite.\n6. Qt Creator.\n7. Code::Blocks.",
-                //3
-                "1. Header Files - предназначена для хранения заголовочных файлов с расширением .h\n" +
-                "\n" +
-                "2. Resource Files - предназначена для хранения файлов ресурсов, например, изображений\n" +
-                "\n" +
-                "3. Source Files - хранит файлы с исходным кодом\n\n\n" +
-                "По умолчанию каталог Source Files содержит один файл с исходным кодом - MyApp.cpp\n(название проекта + расширение файла .cpp).",
-                //4
-                "Исходный код первой программы:\n\n\n" +
-                "#include <iostream>\n\n" +
-                        "using namespace std;\n\n" +
-                        "int main()\n" +
-                        "{\n" +
-                        "   cout << \"Hello World\";\n\n" +
-                        "   return 0;" +
-                        "\n}",
-                //5
-                "Разберём код по строкам:\n\n\n" +
-                "#include <iostream>\n\n" +
-                        "// раскрытие пространства имен\n" +
-                        "using namespace std;\n\n" +
-                        "// основная функция, в которой начинается выполнение программы\n" +
-                        "int main()\n" +
-                        "{\n" +
-                        "// вызов на экране сообщения «Hello World».\n" +
-                        "cout << \"Hello World\";\n\n" +
-                        "// завершение функции main() и возвращение значения 0 в вызывающий процесс.\n" +
-                        "return 0;" +
-                        "\n}",
-                //6
-                "Программа на C++ — это последовательность команд. Большинство команд должны заканчиваться ТОЧКОЙ С ЗАПЯТОЙ.\n\n" +
-                "Структура программы формируется ФИГУРНЫМИ СКОБКАМИ, т.е. блоки функций, блоки if, циклов и т.п. указываются с помощью фигурных скобок.\n\n" +
-                "ОТСТУПЫ в программе на C++ не имеют никакого значения для компилятора\n\n" +
-                "Язык C++ чувствителен к РЕГИСТРУ: заглавные и маленькие буквы различаются."
-        };
+            texts_theories_en = new String[]{
+                    //0
+                    "The C++ programming language is a high-level compiled general-purpose programming language with static typing, which is suitable for creating a wide variety of applications.The language originated in the early 1980s, when Bjorn Stroustrup, an employee of Bell Labs, came up with a number of improvements to the C language.",
+                    //1
+                    "In C++, you can write LOW-LEVEL code by accessing memory directly. Or you can use HIGH-LEVEL concepts like OOP and FUNCTIONAL PROGRAMMING.\\n\\n C++ has many high-level TOOLS, CONSTRUCTS and LIBRARIES, which allows you to significantly speed up development\\n\\nC++ gives developers so many opportunities that you can write anything on it: from drivers to websites.\\n\"+\n" +
+                            "\" It is also not only VERSATILE, but also very PRODUCTIVE.",
+                    //2
+                    "A development environment (IDE) is a program or several programs that you use to create programs.\n\nTop 7 popular IDE for C++ programming:\n\n1. Microsoft Visual Studio.\n2. Xcode.\n3. NetBeans.\n4. Eclipse.\n5. CodeLite.\n6. Qt Creator.\n7. Code::Blocks.",
+                    //3
+                    "1. Header Files - designed to store header files with an extension.h\n"+
+                            "\n"+
+                            "2. Resource Files - designed to store resource files, such as images\n"+
+                            "\n"+
+                            "3. Source Files - stores source code files\n\n\n"+
+                            "By default, the Source Files directory contains one source code file is MyApp.cpp\n(project name + .cpp file extension).",
+                    //4
+                    "The source code of the first program:\n\n\n" +
+                            "#include <iostream>\n\n" +
+                            "using namespace std;\n\n" +
+                            "int main()\n" +
+                            "{\n" +
+                            " cout << \"Hello World\";\n\n" +
+                            " return 0;" +
+                            "\n}",
+                    //5
+                    "Let's analyze the code by lines:\n\n\n"+
+                            "#include <iostream>\n\n"+
+                            "// namespace disclosure\n"+
+                            "using namespace std;\n\n"+
+                            "// the main function in which the program execution begins\n"+
+                            "int main()\n"+
+                            "{\n"+
+                            "// calling the message \"Hello World\" on the screen.\n"+
+                            "cout <<\"Hello World\";\n\n"+
+                            "// terminating the main() function and returning the value 0 to the calling process.\n" +
+                            "return 0;" +
+                            "\n}",
+                    //6
+                    "A C++ program is a sequence of commands. Most commands should end with a SEMICOLON.\n\n"+
+                            " The program structure is formed by CURLY BRACKETS, i.e. function blocks, if blocks, loops, etc. are specified using curly brackets.\n\n" +
+                            "INDENTATION in a C++ program has no meaning for the compiler\n\n"+
+                            "The C++ language is CASE sensitive: uppercase and lowercase letters differ."
+            };
 
-        texts_headers_en = new String[]{
-                //0
-                "Who is C++?",
-                //1
-                "Why С++?",
-                //2
-                "Development environments",
-                //3
-                "Project structure",
-                //4
-                "Program structure",
-                //5
-                "Program structure",
-                //6
-                "The syntax of C++"
-        };
+            texts_headers = new String[]{
 
-        texts_theories_en = new String[]{
-                //0
-                "The C++ programming language is a high-level compiled general-purpose programming language with static typing, which is suitable for creating a wide variety of applications.The language originated in the early 1980s, when Bjorn Stroustrup, an employee of Bell Labs, came up with a number of improvements to the C language.",
-                //1
-                "In C++, you can write LOW-LEVEL code by accessing memory directly. Or you can use HIGH-LEVEL concepts like OOP and FUNCTIONAL PROGRAMMING.\\n\\n C++ has many high-level TOOLS, CONSTRUCTS and LIBRARIES, which allows you to significantly speed up development\\n\\nC++ gives developers so many opportunities that you can write anything on it: from drivers to websites.\\n\"+\n" +
-                        "\" It is also not only VERSATILE, but also very PRODUCTIVE.",
-                //2
-                "A development environment (IDE) is a program or several programs that you use to create programs.\n\nTop 7 popular IDE for C++ programming:\n\n1. Microsoft Visual Studio.\n2. Xcode.\n3. NetBeans.\n4. Eclipse.\n5. CodeLite.\n6. Qt Creator.\n7. Code::Blocks.",
-                //3
-                "1. Header Files - designed to store header files with an extension.h\n"+
-                        "\n"+
-                        "2. Resource Files - designed to store resource files, such as images\n"+
-                        "\n"+
-                        "3. Source Files - stores source code files\n\n\n"+
-                        "By default, the Source Files directory contains one source code file is MyApp.cpp\n(project name + .cpp file extension).",
-                //4
-                "The source code of the first program:\n\n\n" +
-                        "#include <iostream>\n\n" +
-                        "using namespace std;\n\n" +
-                        "int main()\n" +
-                        "{\n" +
-                        " cout << \"Hello World\";\n\n" +
-                        " return 0;" +
-                        "\n}",
-                //5
-                "Let's analyze the code by lines:\n\n\n"+
-                        "#include <iostream>\n\n"+
-                        "// namespace disclosure\n"+
-                        "using namespace std;\n\n"+
-                        "// the main function in which the program execution begins\n"+
-                        "int main()\n"+
-                        "{\n"+
-                        "// calling the message \"Hello World\" on the screen.\n"+
-                "cout <<\"Hello World\";\n\n"+
-                "// terminating the main() function and returning the value 0 to the calling process.\n" +
-                "return 0;" +
-                "\n}",
-                //6
-                "A C++ program is a sequence of commands. Most commands should end with a SEMICOLON.\n\n"+
-                        " The program structure is formed by CURLY BRACKETS, i.e. function blocks, if blocks, loops, etc. are specified using curly brackets.\n\n" +
-                        "INDENTATION in a C++ program has no meaning for the compiler\n\n"+
-                        "The C++ language is CASE sensitive: uppercase and lowercase letters differ."
-        };
+                    //0
+                    "Кто такой С++?",
+                    //1
+                    "Почему С++?",
+                    //2
+                    "Среды разработки",
+                    //3
+                    "Структура проекта",
+                    //4
+                    "Структура программы",
+                    //5
+                    "Структура программы",
+                    //6
+                    "Синтаксис С++"
+            };
+            texts_theories = new String[]{
+                    //0
+                    "Язык программирования С++ представляет высокоуровневый компилируемый язык программирования общего назначения со статической типизацией, который подходит для создания самых различных приложений.\n\nЯзык возник в начале 1980-х годов, когда сотрудник фирмы Bell Labs Бьёрн Страуструп придумал ряд усовершенствований к языку C.",
+                    //1
+                    "На C++ можно писать НИЗКОУРОВНЕВЫЙ код, обращаясь к памяти напрямую. Или можно использовать ВЫСОКОУРОВНЕВЫЕ концепции вроде ООП и ФУНКЦИОНАЛЬНОЕ ПРОГРАММИРОВАНИЕ.\n\nВ C++ есть много высокоуровневых ИНСТРУМЕНТОВ, КОНСТРУКЦИЙ и БИБЛИОТЕК, что позволяет значительно ускорить разработку\n\nC++ даёт разработчикам столько возможностей, что на нём можно писать что угодно: от драйверов до сайтов.\n" +
+                            "Также он не только УНИВЕРСАЛЬНЫЙ, но и очень ПРОИЗВОДИТЕЛЬНЫЙ.",
+                    //2
+                    "Среда разработки (IDE) — это программа или несколько программ, которые вы используете для создания программ.\n\nТоп 7 популярных IDE для программирования на С++:\n\n1. Microsoft Visual Studio.\n2. Xcode.\n3. NetBeans.\n4. Eclipse.\n5. CodeLite.\n6. Qt Creator.\n7. Code::Blocks.",
+                    //3
+                    "1. Header Files - предназначена для хранения заголовочных файлов с расширением .h\n" +
+                            "\n" +
+                            "2. Resource Files - предназначена для хранения файлов ресурсов, например, изображений\n" +
+                            "\n" +
+                            "3. Source Files - хранит файлы с исходным кодом\n\n\n" +
+                            "По умолчанию каталог Source Files содержит один файл с исходным кодом - MyApp.cpp\n(название проекта + расширение файла .cpp).",
+                    //4
+                    "Исходный код первой программы:\n\n\n" +
+                            "#include <iostream>\n\n" +
+                            "using namespace std;\n\n" +
+                            "int main()\n" +
+                            "{\n" +
+                            "   cout << \"Hello World\";\n\n" +
+                            "   return 0;" +
+                            "\n}",
+                    //5
+                    "Разберём код по строкам:\n\n\n" +
+                            "#include <iostream>\n\n" +
+                            "// раскрытие пространства имен\n" +
+                            "using namespace std;\n\n" +
+                            "// основная функция, в которой начинается выполнение программы\n" +
+                            "int main()\n" +
+                            "{\n" +
+                            "// вызов на экране сообщения «Hello World».\n" +
+                            "cout << \"Hello World\";\n\n" +
+                            "// завершение функции main() и возвращение значения 0 в вызывающий процесс.\n" +
+                            "return 0;" +
+                            "\n}",
+                    //6
+                    "Программа на C++ — это последовательность команд. Большинство команд должны заканчиваться ТОЧКОЙ С ЗАПЯТОЙ.\n\n" +
+                            "Структура программы формируется ФИГУРНЫМИ СКОБКАМИ, т.е. блоки функций, блоки if, циклов и т.п. указываются с помощью фигурных скобок.\n\n" +
+                            "ОТСТУПЫ в программе на C++ не имеют никакого значения для компилятора\n\n" +
+                            "Язык C++ чувствителен к РЕГИСТРУ: заглавные и маленькие буквы различаются."
+            };
 
         current_index_text = 0;
     }
@@ -247,6 +251,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     }
 
     public void show_action(View view){
+
         if(current_index_text == 0)
         {
             b_back.setVisibility(View.INVISIBLE);
@@ -273,8 +278,15 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         if(current_index_text >= 0 &&
                 current_index_text < texts_theories.length)
         {
-            header_theory.setText(texts_headers[current_index_text]);
-            text_theory.setText(texts_theories[current_index_text]);
+            if(Locale.getDefault().getLanguage() == "en") {
+                header_theory.setText(texts_headers_en[current_index_text]);
+                text_theory.setText(texts_theories_en[current_index_text]);
+            }
+            else if (Locale.getDefault().getLanguage() == "ru") {
+                header_theory.setText(texts_headers[current_index_text]);
+                text_theory.setText(texts_theories[current_index_text]);
+            }
+
         }
         else if (current_index_text == texts_theories.length)
         {
@@ -314,6 +326,13 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 break;
             }
         }
+    }
+
+    private void return_frag(){
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment1, new Course1_Theory_Fragment())
+                .commit();
     }
 
 }

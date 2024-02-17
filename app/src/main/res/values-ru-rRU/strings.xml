@@ -27,4 +27,5 @@
     <string name="btn_theory">Вернуться к теории</string>
     <string name="result_test">Всё верно! Молодец\\nДвигаемся дальше</string>
     <string name="btn_check2">Проверить ещё раз</string>
+    <string name="text_start_test">Проверить         знания</string>
 </resources>
