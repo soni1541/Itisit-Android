@@ -1,11 +1,14 @@
 package com.example.itisit;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +43,12 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    long minutes;
+
+    private TextView timer_text_view;
+
+    CountDownTimer timer;
 
     private TextView header_test;
 
@@ -248,6 +259,8 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         checkBoxes = new ArrayList<CheckBox>();
         radioButtons = new ArrayList<RadioButton>();
 
+        minutes = 900000;
+
     }
 
     /**
@@ -283,6 +296,8 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_course2__test_, container, false);
 
+        timer_text_view = (TextView) view.findViewById(R.id.textView_timer1);
+
         b_forward = (ImageButton) view.findViewById(R.id.imageButton_forward);
         b_back = (ImageButton) view.findViewById(R.id.imageButton_back);
         b_theory = (ImageButton) view.findViewById(R.id.imageButton_theory);
@@ -298,6 +313,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
         constraintLayout = (ConstraintLayout) view.findViewById(R.id.layout_test_course2);
 
+        show_timer(view);
         show_action(view);
 
 
@@ -307,6 +323,60 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         b_check.setOnClickListener(this);
 
         return view;
+    }
+
+    public void show_timer(View view) {
+
+        if(timer!=null)
+        {
+            timer.cancel();
+        }
+        timer = new CountDownTimer(minutes, 1000) {
+            @Override
+            public void onTick(long l) {
+                timer_text_view.setTextColor(Color.BLACK);
+
+                NumberFormat f = new DecimalFormat("00");
+                long sec = l/1000;
+                long min = sec/60;
+                sec = sec%60;
+                String time = f.format(min) + ":" + f.format(sec);
+
+                if(min <= 1)
+                {
+                    timer_text_view.setTextColor(Color.RED);
+                }
+                timer_text_view.setText(time);
+            }
+
+            @Override
+            public void onFinish() {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setTitle("Время истекло");
+                builder.setMessage("Вы не завершили тест за отведенное время");
+                builder.setIcon(R.drawable.incorrect);
+                builder.setNegativeButton("ПРОЙТИ ЗАНОВО", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Закрываем диалоговое окно
+                        dialog.cancel();
+
+                        getParentFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment1, new Course1_Test_Fragment())
+                                .addToBackStack(null)
+                                .commit();
+                        return;
+
+                    }
+                });
+
+                builder.create();
+                builder.show();
+
+            }
+        };
+        timer.start();
     }
 
     public void show_action(View view){
