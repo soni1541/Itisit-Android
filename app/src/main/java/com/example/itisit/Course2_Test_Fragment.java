@@ -1,14 +1,18 @@
 package com.example.itisit;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,9 +50,9 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
     long minutes;
 
-    private TextView timer_text_view;
+    private Vibrator vibrator;
 
-    CountDownTimer timer;
+    private TextView timer_text_view;
 
     private TextView header_test;
 
@@ -259,7 +263,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         checkBoxes = new ArrayList<CheckBox>();
         radioButtons = new ArrayList<RadioButton>();
 
-        minutes = 900000;
+        minutes = 600000;
 
     }
 
@@ -296,6 +300,8 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_course2__test_, container, false);
 
+        vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+
         timer_text_view = (TextView) view.findViewById(R.id.textView_timer1);
 
         b_forward = (ImageButton) view.findViewById(R.id.imageButton_forward);
@@ -327,11 +333,11 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
     public void show_timer(View view) {
 
-        if(timer!=null)
+        if(Simple.timer!=null)
         {
-            timer.cancel();
+            Simple.timer.cancel();
         }
-        timer = new CountDownTimer(minutes, 1000) {
+        Simple.timer = new CountDownTimer(minutes, 1000) {
             @Override
             public void onTick(long l) {
                 timer_text_view.setTextColor(Color.BLACK);
@@ -345,12 +351,26 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 if(min <= 1)
                 {
                     timer_text_view.setTextColor(Color.RED);
+
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        // Новые версии
+
+                        long[] pattern = {0, 200, 400};
+                        vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1));
+
+                    }
+                    else {
+                        vibrator.vibrate(5000);
+                    }
                 }
                 timer_text_view.setText(time);
             }
 
             @Override
             public void onFinish() {
+
+                vibrator.cancel();
+                vibrator = null;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setTitle("Время истекло");
@@ -376,7 +396,7 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
 
             }
         };
-        timer.start();
+        Simple.timer.start();
     }
 
     public void show_action(View view){
@@ -448,6 +468,9 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
         }
         else if (current_index_question == questions.size())
         {
+            Simple.timer.cancel();
+            vibrator.cancel();
+
             Current_Fragment.now_fragment = 1;
             getParentFragmentManager()
                     .beginTransaction()
@@ -589,6 +612,9 @@ public class Course2_Test_Fragment extends Fragment implements View.OnClickListe
                 break;
             }
             case R.id.imageButton_theory: {
+
+                Simple.timer.cancel();
+                vibrator.cancel();
 
                 getParentFragmentManager()
                         .beginTransaction()

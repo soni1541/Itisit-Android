@@ -7,17 +7,24 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Vibrator;
+import android.os.VibratorManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.sql.Time;
 import java.util.Locale;
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -168,6 +175,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(Current_Fragment.now_fragment == 3)
                 {
+
+                    Simple.timer.cancel();
+
+                    Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                    vib.cancel();
+
                     Current_Fragment.now_fragment = 2;
                     getSupportFragmentManager()
                             .beginTransaction()
@@ -186,6 +200,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(Current_Fragment.now_fragment == 5)
                 {
+                    Simple.timer.cancel();
+
+                    Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                    vib.cancel();
+
                     Current_Fragment.now_fragment = 4;
                     getSupportFragmentManager()
                             .beginTransaction()
@@ -208,15 +228,6 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-
-    public void click_change_lang(View view) {
-        Locale locale = new Locale("ru-rRUs");
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getApplicationContext().getResources().updateConfiguration(config, null);
-
-    }
 
 
 }
