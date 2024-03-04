@@ -2,6 +2,7 @@ package com.example.itisit;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,10 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     private String mParam2;
 
 
+    private ImageButton micro;
+
+    MediaPlayer mediaPlayer;
+
     private TextView header_theory;
     private TextView text_theory;
 
@@ -49,6 +54,8 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
 
     private String[] texts_headers_en;
     private String[] texts_theories_en;
+
+    private int[] audio_texts;
 
     private int current_index_text;
 
@@ -181,6 +188,24 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
             };
 
         current_index_text = 0;
+
+        audio_texts = new int[]{
+                //0
+                R.raw.theory1_1,
+                //1
+                R.raw.theory1_2,
+                //2
+                R.raw.theory1_3,
+                //3
+                R.raw.theory1_4,
+                //4
+                R.raw.theory1_5,
+                //5
+                R.raw.theory1_6,
+                //6
+                R.raw.theory1_7
+        };
+
     }
 
     /**
@@ -231,6 +256,9 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
 
         View view = inflater.inflate(R.layout.fragment_course1__theory_, container, false);
 
+
+        micro = (ImageButton) view.findViewById(R.id.imageButton_micro);
+
         b_forward = (ImageButton) view.findViewById(R.id.imageButton_forward);
         b_back = (ImageButton) view.findViewById(R.id.imageButton_back);
 
@@ -246,6 +274,8 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
 
         b_forward.setOnClickListener(this);
         b_back.setOnClickListener(this);
+
+        micro.setOnClickListener(this);
 
         return view;
     }
@@ -287,6 +317,8 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 text_theory.setText(texts_theories[current_index_text]);
             }
 
+            mediaPlayer = MediaPlayer.create(view.getContext(),audio_texts[current_index_text]);
+
         }
         else if (current_index_text == texts_theories.length)
         {
@@ -324,6 +356,13 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 show_action(view);
 
                 break;
+            }
+            case R.id.imageButton_micro: {
+
+                if(mediaPlayer.isPlaying()){
+                    mediaPlayer.pause();
+                }
+                mediaPlayer.start();
             }
         }
     }
