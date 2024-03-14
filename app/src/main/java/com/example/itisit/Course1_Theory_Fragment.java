@@ -277,19 +277,12 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         b_forward.setOnClickListener(this);
         b_back.setOnClickListener(this);
 
-
-
-
         micro.setOnClickListener(this);
-
-
 
         return view;
     }
 
     public void show_action(View view){
-
-
 
         if(current_index_text == 0)
         {
@@ -350,6 +343,8 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
 
             case R.id.imageButton_forward: {
 
+                mediaPlayer.stop();
+
                 ++current_index_text;
 
                 //Отображение положений кнопок
@@ -358,6 +353,8 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 break;
             }
             case R.id.imageButton_back: {
+
+                mediaPlayer.stop();
 
                 --current_index_text;
 

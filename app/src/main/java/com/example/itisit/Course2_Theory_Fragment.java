@@ -1,5 +1,6 @@
 package com.example.itisit;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,10 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
     private String mParam2;
 
 
+    private ImageButton micro;
+
+    MediaPlayer mediaPlayer;
+
     private TextView header_theory;
     private TextView text_theory;
 
@@ -48,6 +53,8 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
     private String[] texts_theories_en;
 
     private Course2_Test_Fragment course2_test_fragment = new Course2_Test_Fragment();
+
+    private int[] audio_texts;
     private int current_index_text;
 
     public Course2_Theory_Fragment() {
@@ -204,6 +211,24 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
         };
 
         current_index_text = 0;
+
+        audio_texts = new int[]{
+                //0
+                R.raw.theory2_1,
+                //1
+                R.raw.theory2_2,
+                //2
+                R.raw.theory2_3,
+                //3
+                R.raw.theory2_4,
+                //4
+                R.raw.theory2_5,
+                //5
+                R.raw.theory2_6,
+                //6
+                R.raw.theory2_7
+        };
+
     }
 
     /**
@@ -255,6 +280,8 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
         header_theory = (TextView) view.findViewById(R.id.textView_header);
         text_theory = (TextView) view.findViewById(R.id.textView_theory);
 
+        micro = (ImageButton) view.findViewById(R.id.imageButton_micro2);
+
 
         text_start_test = (TextView) view.findViewById(R.id.textView_text_start_test);
 
@@ -263,6 +290,7 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
 
         b_forward.setOnClickListener(this);
         b_back.setOnClickListener(this);
+        micro.setOnClickListener(this);
 
         current_index_text = 0;
 
@@ -305,6 +333,8 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
                 header_theory.setText(texts_headers[current_index_text]);
                 text_theory.setText(texts_theories[current_index_text]);
             }
+
+            mediaPlayer = MediaPlayer.create(view.getContext(),audio_texts[current_index_text]);
         }
         else if (current_index_text == texts_theories.length)
         {
@@ -327,6 +357,8 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
 
             case R.id.imageButton_forward: {
 
+                mediaPlayer.stop();
+
                 ++current_index_text;
 
                 //Отображение положений кнопок
@@ -336,12 +368,25 @@ public class Course2_Theory_Fragment extends Fragment implements View.OnClickLis
             }
             case R.id.imageButton_back: {
 
+                mediaPlayer.stop();
+
                 --current_index_text;
+
 
                 //Отображение положений кнопок
                 show_action(view);
 
                 break;
+            }
+            case R.id.imageButton_micro2: {
+
+                if(mediaPlayer.isPlaying()){
+                    mediaPlayer.pause();
+                }
+                else {
+                    mediaPlayer = MediaPlayer.create(getContext(), audio_texts[current_index_text]);
+                    mediaPlayer.start();
+                }
             }
         }
     }
