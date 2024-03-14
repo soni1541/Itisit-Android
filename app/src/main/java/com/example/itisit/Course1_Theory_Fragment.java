@@ -1,5 +1,6 @@
 package com.example.itisit;
 
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
@@ -62,6 +63,7 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
     private Course1_Test_Fragment course1_test_fragment = new Course1_Test_Fragment();
 
 
+    @SuppressLint("ResourceType")
     public Course1_Theory_Fragment() {
         // Required empty public constructor
 
@@ -275,12 +277,19 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
         b_forward.setOnClickListener(this);
         b_back.setOnClickListener(this);
 
+
+
+
         micro.setOnClickListener(this);
+
+
 
         return view;
     }
 
     public void show_action(View view){
+
+
 
         if(current_index_text == 0)
         {
@@ -362,7 +371,10 @@ public class Course1_Theory_Fragment extends Fragment implements View.OnClickLis
                 if(mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
                 }
-                mediaPlayer.start();
+                else {
+                    mediaPlayer = MediaPlayer.create(getContext(), audio_texts[current_index_text]);
+                    mediaPlayer.start();
+                }
             }
         }
     }
