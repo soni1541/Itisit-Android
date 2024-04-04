@@ -59,14 +59,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitleTextAppearance(this, R.style.SourseCodeProBoldTextAppearance);
         toolbar.setTitle("ITISIT");
 
-//        Intent intent = new Intent(MainActivity.this, Receiver.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, REQUEST_CODE, intent, 0);
-//        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
-//        am.setRepeating(am.RTC_WAKEUP, System.currentTimeInMillis(), am.INTERVAL_DAY*7, pendingIntent);
-
 
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.getMenu().getItem(0).setTitle(R.string.menu_main);
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

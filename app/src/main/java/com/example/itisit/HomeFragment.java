@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,9 +98,11 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     set_language("ru");
-
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
+                    BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_nav);
+                    Log.d("MENU", String.valueOf(bottomNavigationView.isEnabled()));
+                    bottomNavigationView.getMenu().getItem(0).setTitle(R.string.menu_main);
+                    bottomNavigationView.getMenu().getItem(1).setTitle(R.string.menu_history);
+                    bottomNavigationView.getMenu().getItem(2).setTitle(R.string.menu_about);
                 }
             });
         }
@@ -108,8 +111,11 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     set_language("en");
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
+                    BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_nav);
+                    Log.d("MENU", String.valueOf(bottomNavigationView.isEnabled()));
+                    bottomNavigationView.getMenu().getItem(0).setTitle(R.string.menu_main);
+                    bottomNavigationView.getMenu().getItem(1).setTitle(R.string.menu_history);
+                    bottomNavigationView.getMenu().getItem(2).setTitle(R.string.menu_about);
                 }
             });
         }
@@ -125,9 +131,16 @@ public class HomeFragment extends Fragment {
         configuration.setLocale(locale);
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
 
+
+
         getParentFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment1, new HomeFragment())
                 .commit();
+
+
+//        getActivity().finish();
+//        Intent intent = new Intent(getActivity(), MainActivity.class);
+//        startActivity(intent);
     }
 }
