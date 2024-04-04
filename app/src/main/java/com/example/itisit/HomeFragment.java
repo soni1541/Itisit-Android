@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Locale;
 
 /**
@@ -95,6 +97,9 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     set_language("ru");
+
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
         }
@@ -103,6 +108,8 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     set_language("en");
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
         }
